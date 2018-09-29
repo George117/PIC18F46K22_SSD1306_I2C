@@ -75,6 +75,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "8006
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+"8513
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S402 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"8523
+[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S403 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"8512
+[u S401 `S402 1 `S403 1 ]
+[n S401 . . . ]
+"8534
+[v _TRISCbits `VS401 ~T0 @X0 0 e@3988 ]
+"36 i2c.h
+[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`ul ]
+[v F6949 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF6949 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6714,90 +6731,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "78
 [p x EBTRB=OFF ]
-"13 config.c
+[; ;i2c.h: 36: void I2C_Master_Init(unsigned long c);
+[; ;i2c.h: 37: void I2C_Master_Wait();
+[; ;i2c.h: 38: void I2C_Master_Start();
+[; ;i2c.h: 39: void I2C_Master_RepeatedStart();
+[; ;i2c.h: 40: void I2C_Master_Stop();
+[; ;i2c.h: 41: void I2C_Master_Write(unsigned d);
+[; ;i2c.h: 42: void I2C_Write_Display(unsigned d);
+[; ;i2c.h: 44: unsigned short I2C_Master_Read(unsigned short a);
+"15 config.c
 [v _config `(v ~T0 @X0 1 ef ]
-"14
+"16
 {
-[; ;config.c: 13: void config()
-[; ;config.c: 14: {
+[; ;config.c: 15: void config()
+[; ;config.c: 16: {
 [e :U _config ]
 [f ]
-[; ;config.c: 16: OSCCONbits.IRCF0=1;
-"16
-[e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
-[; ;config.c: 17: OSCCONbits.IRCF1=1;
-"17
-[e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
-[; ;config.c: 18: OSCCONbits.IRCF2=1;
+[; ;config.c: 18: OSCCONbits.IRCF0=1;
 "18
-[e = . . _OSCCONbits 1 6 -> -> 1 `i `uc ]
-[; ;config.c: 19: OSCTUNEbits.PLLEN = 1;
+[e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
+[; ;config.c: 19: OSCCONbits.IRCF1=1;
 "19
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;config.c: 20: INTCONbits.GIE=0;
+[e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
+[; ;config.c: 20: OSCCONbits.IRCF2=1;
 "20
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;config.c: 22: ANSELA=0X00;
+[e = . . _OSCCONbits 1 6 -> -> 1 `i `uc ]
+[; ;config.c: 21: OSCTUNEbits.PLLEN = 1;
+"21
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;config.c: 22: INTCONbits.GIE=0;
 "22
-[e = _ANSELA -> -> 0 `i `uc ]
-[; ;config.c: 23: ANSELB=0X00;
-"23
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;config.c: 24: ANSELC=0X00;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;config.c: 24: ANSELA=0X00;
 "24
-[e = _ANSELC -> -> 0 `i `uc ]
-[; ;config.c: 25: ANSELD=0X00;
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;config.c: 25: ANSELB=0X00;
 "25
-[e = _ANSELD -> -> 0 `i `uc ]
-[; ;config.c: 26: ANSELE=0X00;
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;config.c: 26: ANSELC=0X00;
 "26
-[e = _ANSELE -> -> 0 `i `uc ]
-[; ;config.c: 27: TRISA=0X00;
+[e = _ANSELC -> -> 0 `i `uc ]
+[; ;config.c: 27: ANSELD=0X00;
 "27
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;config.c: 28: TRISB=0X00;
+[e = _ANSELD -> -> 0 `i `uc ]
+[; ;config.c: 28: ANSELE=0X00;
 "28
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;config.c: 29: TRISC=0X00;
+[e = _ANSELE -> -> 0 `i `uc ]
+[; ;config.c: 29: TRISA=0X00;
 "29
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;config.c: 30: TRISD=0X00;
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;config.c: 30: TRISB=0X00;
 "30
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;config.c: 31: TRISE=0X00;
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;config.c: 31: TRISC=0X00;
 "31
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;config.c: 32: PORTA=0X00;
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;config.c: 32: TRISD=0X00;
 "32
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;config.c: 33: PORTB=0X00;
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;config.c: 33: TRISE=0X00;
 "33
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;config.c: 34: PORTC=0X00;
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;config.c: 34: PORTA=0X00;
 "34
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;config.c: 35: PORTD=0X00;
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;config.c: 35: PORTB=0X00;
 "35
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;config.c: 36: PORTE=0X00;
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;config.c: 36: PORTC=0X00;
 "36
-[e = _PORTE -> -> 0 `i `uc ]
-[; ;config.c: 37: LATA=0X00;
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;config.c: 37: PORTD=0X00;
 "37
-[e = _LATA -> -> 0 `i `uc ]
-[; ;config.c: 38: LATB=0X00;
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;config.c: 38: PORTE=0X00;
 "38
-[e = _LATB -> -> 0 `i `uc ]
-[; ;config.c: 39: LATC=0X00;
+[e = _PORTE -> -> 0 `i `uc ]
+[; ;config.c: 39: LATA=0X00;
 "39
-[e = _LATC -> -> 0 `i `uc ]
-[; ;config.c: 40: LATD=0X00;
+[e = _LATA -> -> 0 `i `uc ]
+[; ;config.c: 40: LATB=0X00;
 "40
-[e = _LATD -> -> 0 `i `uc ]
-[; ;config.c: 41: LATE=0X00;
+[e = _LATB -> -> 0 `i `uc ]
+[; ;config.c: 41: LATC=0X00;
 "41
-[e = _LATE -> -> 0 `i `uc ]
-[; ;config.c: 42: }
+[e = _LATC -> -> 0 `i `uc ]
+[; ;config.c: 42: LATD=0X00;
 "42
+[e = _LATD -> -> 0 `i `uc ]
+[; ;config.c: 43: LATE=0X00;
+"43
+[e = _LATE -> -> 0 `i `uc ]
+[; ;config.c: 45: TRISCbits.TRISC3=1;
+"45
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+[; ;config.c: 46: TRISCbits.TRISC4=1;
+"46
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;config.c: 47: I2C_Master_Init(100000);
+"47
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
+[; ;config.c: 48: _delay((unsigned long)((100)*(64000000/4000.0)));
+"48
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;config.c: 50: }
+"50
 [e :UE 849 ]
 }

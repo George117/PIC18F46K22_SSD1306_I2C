@@ -5,10 +5,12 @@
  * Created on January 1, 2017, 1:37 PM
  */
 
-
+#define _XTAL_FREQ 64000000
 #include <xc.h>
 #include <pic18f46k22.h>
 #include "bit_settings.h"
+#include "i2c.h"
+
 
 void config()
 {
@@ -39,6 +41,12 @@ void config()
     LATC=0X00;
     LATD=0X00;
     LATE=0X00;
+    
+    TRISCbits.TRISC3=1;//i2c
+    TRISCbits.TRISC4=1;//i2c
+    I2C_Master_Init(100000);
+    __delay_ms(100);
+    
 }
 
 

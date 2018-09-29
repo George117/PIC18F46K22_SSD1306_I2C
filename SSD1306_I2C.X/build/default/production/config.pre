@@ -8534,7 +8534,18 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 13 "config.c"
+# 36 "i2c.h"
+void I2C_Master_Init(unsigned long c);
+void I2C_Master_Wait();
+void I2C_Master_Start();
+void I2C_Master_RepeatedStart();
+void I2C_Master_Stop();
+void I2C_Master_Write(unsigned d);
+void I2C_Write_Display(unsigned d);
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+# 15 "config.c"
 void config()
 {
 
@@ -8564,5 +8575,11 @@ LATB=0X00;
 LATC=0X00;
 LATD=0X00;
 LATE=0X00;
+
+TRISCbits.TRISC3=1;
+TRISCbits.TRISC4=1;
+I2C_Master_Init(100000);
+_delay((unsigned long)((100)*(64000000/4000.0)));
+
 }
 

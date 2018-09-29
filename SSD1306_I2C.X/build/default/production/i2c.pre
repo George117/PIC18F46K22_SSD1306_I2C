@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "i2c.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8473,70 +8473,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-
-# 21 "bit_settings.h"
-#pragma config FOSC = INTIO67
-#pragma config PLLCFG = OFF
-#pragma config PRICLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 190
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = PORTC1
-#pragma config PBADEN = OFF
-#pragma config CCP3MX = PORTB5
-#pragma config HFOFST = ON
-#pragma config T3CMX = PORTC0
-#pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-
-# 3 "config.h"
-void config();
-
 # 36 "i2c.h"
 void I2C_Master_Init(unsigned long c);
 void I2C_Master_Wait();
@@ -8548,23 +8484,64 @@ void I2C_Write_Display(unsigned d);
 
 unsigned short I2C_Master_Read(unsigned short a);
 
-# 18 "main.c"
-void main(void)
+# 21 "i2c.c"
+void I2C_Master_Init(unsigned long c)
 {
-config();
+SSPCON1 = 0b00101000;
+SSPCON2 = 0x00;
+SSPADD = (64000000/(4*c))-1;
+SSPSTAT = 0x00;
+TRISCbits.TRISC3=1;
+TRISCbits.TRISC4=1;
+}
 
-I2C_Master_Start();
-I2C_Write_Display(0x3C);
-I2C_Write_Display(0x69);
-I2C_Master_Stop();
-
-while(1)
+void I2C_Master_Wait()
 {
-_delay((unsigned long)((100)*(64000000/4000.0)));
-I2C_Master_Start();
-I2C_Write_Display(0x3C);
-I2C_Write_Display(0x69);
-I2C_Master_Stop();
-_delay((unsigned long)((100)*(64000000/4000.0)));
+while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+
+
 }
+
+void I2C_Master_Start()
+{
+I2C_Master_Wait();
+SSPCON2bits.SEN = 1;
 }
+
+void I2C_Master_RepeatedStart()
+{
+I2C_Master_Wait();
+SSPCON2bits.RSEN = 1;
+}
+
+void I2C_Master_Stop()
+{
+I2C_Master_Wait();
+SSPCON2bits.PEN = 1;
+}
+
+void I2C_Master_Write(unsigned d)
+{
+I2C_Master_Wait();
+SSPBUF = d;
+}
+
+void I2C_Write_Display(unsigned d)
+{
+I2C_Master_Wait();
+SSPBUF = d;
+}
+
+unsigned short I2C_Master_Read(unsigned short a)
+{
+unsigned short temp;
+I2C_Master_Wait();
+SSP1CON2bits.RCEN = 1;
+I2C_Master_Wait();
+temp = SSPBUF;
+I2C_Master_Wait();
+SSP1CON2bits.ACKDT = (a)?0:1;
+SSP1CON2bits.ACKEN = 1;
+return temp;
+}
+

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Sat Sep 29 16:31:31 2018
+                                                                                               Sat Sep 29 16:52:33 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F46K22
@@ -12,329 +12,907 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
      6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
      7                           	psect	text0,global,reloc=2,class=CODE,delta=1
      8                           	psect	text1,global,reloc=2,class=CODE,delta=1
-     9                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    10                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    11  0000                     
-    12                           ; Version 1.45
-    13                           ; Generated 16/11/2017 GMT
-    14                           ; 
-    15                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    16                           ; All rights reserved.
-    17                           ; 
-    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text3,global,reloc=2,class=CODE,delta=1,group=1
+    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    15                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    16                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    17  0000                     
+    18                           ; Version 1.45
+    19                           ; Generated 16/11/2017 GMT
+    20                           ; 
+    21                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    22                           ; All rights reserved.
+    23                           ; 
+    24                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    19                           ; 
-    20                           ; Redistribution and use in source and binary forms, with or without modification, are
-    21                           ; permitted provided that the following conditions are met:
-    22                           ; 
-    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
-      +                          t of
-    24                           ;        conditions and the following disclaimer.
     25                           ; 
-    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    26                           ; Redistribution and use in source and binary forms, with or without modification, are
+    27                           ; permitted provided that the following conditions are met:
+    28                           ; 
+    29                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    30                           ;        conditions and the following disclaimer.
+    31                           ; 
+    32                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    27                           ;        of conditions and the following disclaimer in the documentation and/or other
-    28                           ;        materials provided with the distribution.
-    29                           ; 
-    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    33                           ;        of conditions and the following disclaimer in the documentation and/or other
+    34                           ;        materials provided with the distribution.
+    35                           ; 
+    36                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    31                           ;        software without specific prior written permission.
-    32                           ; 
-    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    37                           ;        software without specific prior written permission.
+    38                           ; 
+    39                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    40                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    41                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    42                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    43                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    44                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    45                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    41                           ; 
-    42                           ; 
-    43                           ; Code-generator required, PIC18F46K22 Definitions
-    44                           ; 
-    45                           ; SFR Addresses
-    46  0000                     _ANSELE	set	3900
-    47  0000                     _ANSELD	set	3899
-    48  0000                     _ANSELC	set	3898
-    49  0000                     _ANSELB	set	3897
-    50  0000                     _ANSELA	set	3896
-    51  0000                     _LATDbits	set	3980
-    52  0000                     _LATE	set	3981
-    53  0000                     _LATD	set	3980
-    54  0000                     _LATC	set	3979
-    55  0000                     _LATB	set	3978
-    56  0000                     _LATA	set	3977
-    57  0000                     _PORTE	set	3972
-    58  0000                     _PORTD	set	3971
-    59  0000                     _PORTC	set	3970
-    60  0000                     _PORTB	set	3969
-    61  0000                     _PORTA	set	3968
-    62  0000                     _TRISE	set	3990
-    63  0000                     _TRISD	set	3989
-    64  0000                     _TRISC	set	3988
-    65  0000                     _TRISB	set	3987
-    66  0000                     _TRISA	set	3986
-    67  0000                     _INTCONbits	set	4082
-    68  0000                     _OSCTUNEbits	set	3995
-    69  0000                     _OSCCONbits	set	4051
-    70                           
-    71                           ; #config settings
-    72  0000                     
-    73                           	psect	cinit
-    74  00FF76                     __pcinit:
-    75                           	opt stack 0
-    76  00FF76                     start_initialization:
-    77                           	opt stack 0
-    78  00FF76                     __initialization:
-    79                           	opt stack 0
-    80  00FF76                     end_of_initialization:
-    81                           	opt stack 0
-    82  00FF76                     __end_of__initialization:
-    83                           	opt stack 0
-    84  00FF76  0100               	movlb	0
-    85  00FF78  EFBE  F07F         	goto	_main	;jump to C main() function
-    86                           
-    87                           	psect	cstackCOMRAM
-    88  000001                     __pcstackCOMRAM:
-    89                           	opt stack 0
-    90  000001                     ??_main:
-    91                           
-    92                           ; 1 bytes @ 0x0
-    93  000001                     	ds	1
-    94                           
-    95 ;;
-    96 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-    97 ;;
-    98 ;; *************** function _main *****************
-    99 ;; Defined at:
-   100 ;;		line 14 in file "main.c"
-   101 ;; Parameters:    Size  Location     Type
-   102 ;;		None
-   103 ;; Auto vars:     Size  Location     Type
-   104 ;;		None
-   105 ;; Return value:  Size  Location     Type
-   106 ;;                  1    wreg      void 
-   107 ;; Registers used:
-   108 ;;		wreg, status,2, cstack
-   109 ;; Tracked objects:
-   110 ;;		On entry : 0/0
-   111 ;;		On exit  : 0/0
-   112 ;;		Unchanged: 0/0
-   113 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   114 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   115 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   116 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   117 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   118 ;;Total ram usage:        1 bytes
-   119 ;; Hardware stack levels required when called:    1
-   120 ;; This function calls:
-   121 ;;		_config
-   122 ;; This function is called by:
-   123 ;;		Startup code after reset
-   124 ;; This function uses a non-reentrant model
-   125 ;;
+    46                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    47                           ; 
+    48                           ; 
+    49                           ; Code-generator required, PIC18F46K22 Definitions
+    50                           ; 
+    51                           ; SFR Addresses
+    52  0000                     _ANSELE	set	3900
+    53  0000                     _ANSELD	set	3899
+    54  0000                     _ANSELC	set	3898
+    55  0000                     _ANSELB	set	3897
+    56  0000                     _ANSELA	set	3896
+    57  0000                     _SSP1CON2bits	set	4037
+    58  0000                     _SSPBUF	set	4041
+    59  0000                     _SSPCON2bits	set	4037
+    60  0000                     _SSPSTAT	set	4039
+    61  0000                     _SSPADD	set	4040
+    62  0000                     _SSPCON2	set	4037
+    63  0000                     _SSPCON1	set	4038
+    64  0000                     _TRISCbits	set	3988
+    65  0000                     _LATE	set	3981
+    66  0000                     _LATD	set	3980
+    67  0000                     _LATC	set	3979
+    68  0000                     _LATB	set	3978
+    69  0000                     _LATA	set	3977
+    70  0000                     _PORTE	set	3972
+    71  0000                     _PORTD	set	3971
+    72  0000                     _PORTC	set	3970
+    73  0000                     _PORTB	set	3969
+    74  0000                     _PORTA	set	3968
+    75  0000                     _TRISE	set	3990
+    76  0000                     _TRISD	set	3989
+    77  0000                     _TRISC	set	3988
+    78  0000                     _TRISB	set	3987
+    79  0000                     _TRISA	set	3986
+    80  0000                     _INTCONbits	set	4082
+    81  0000                     _OSCTUNEbits	set	3995
+    82  0000                     _OSCCONbits	set	4051
+    83                           
+    84                           ; #config settings
+    85  0000                     
+    86                           	psect	cinit
+    87  00FDEE                     __pcinit:
+    88                           	opt stack 0
+    89  00FDEE                     start_initialization:
+    90                           	opt stack 0
+    91  00FDEE                     __initialization:
+    92                           	opt stack 0
+    93  00FDEE                     end_of_initialization:
+    94                           	opt stack 0
+    95  00FDEE                     __end_of__initialization:
+    96                           	opt stack 0
+    97  00FDEE  0100               	movlb	0
+    98  00FDF0  EF3D  F07F         	goto	_main	;jump to C main() function
+    99                           
+   100                           	psect	cstackCOMRAM
+   101  000001                     __pcstackCOMRAM:
+   102                           	opt stack 0
+   103  000001                     ??_I2C_Master_Wait:
+   104  000001                     ?___lldiv:
+   105                           	opt stack 0
+   106  000001                     ___lldiv@dividend:
+   107                           	opt stack 0
+   108                           
+   109                           ; 4 bytes @ 0x0
+   110  000001                     	ds	1
+   111  000002                     I2C_Write_Display@d:
+   112                           	opt stack 0
+   113                           
+   114                           ; 2 bytes @ 0x1
+   115  000002                     	ds	2
+   116  000004                     
+   117                           ; 1 bytes @ 0x3
+   118  000004                     	ds	1
+   119  000005                     ___lldiv@divisor:
+   120                           	opt stack 0
+   121                           
+   122                           ; 4 bytes @ 0x4
+   123  000005                     	ds	4
+   124  000009                     ___lldiv@quotient:
+   125                           	opt stack 0
    126                           
-   127                           	psect	text0
-   128  00FF7C                     __ptext0:
-   129                           	opt stack 0
-   130  00FF7C                     _main:
-   131                           	opt stack 30
-   132                           
-   133                           ;main.c: 16: config();
-   134                           
-   135                           ;incstack = 0
-   136  00FF7C  ECD1  F07F         	call	_config	;wreg free
-   137  00FF80                     
-   138                           ;main.c: 18: {
-   139                           ;main.c: 19: LATDbits.LATD0 = 1;
-   140  00FF80  808C               	bsf	3980,0,c	;volatile
-   141                           
-   142                           ;main.c: 20: _delay((unsigned long)((10)*(64000000/4000.0)));
-   143  00FF82  0ED0               	movlw	208
-   144  00FF84  6E01               	movwf	??_main& (0+255),c
-   145  00FF86  0ECA               	movlw	202
-   146  00FF88                     u17:
-   147  00FF88  2EE8               	decfsz	wreg,f,c
-   148  00FF8A  D7FE               	bra	u17
-   149  00FF8C  2E01               	decfsz	??_main& (0+255),f,c
-   150  00FF8E  D7FC               	bra	u17
+   127                           ; 4 bytes @ 0x8
+   128  000009                     	ds	4
+   129  00000D                     ___lldiv@counter:
+   130                           	opt stack 0
+   131                           
+   132                           ; 1 bytes @ 0xC
+   133  00000D                     	ds	1
+   134  00000E                     I2C_Master_Init@c:
+   135                           	opt stack 0
+   136                           
+   137                           ; 4 bytes @ 0xD
+   138  00000E                     	ds	4
+   139  000012                     ??_I2C_Master_Init:
+   140                           
+   141                           ; 1 bytes @ 0x11
+   142  000012                     	ds	4
+   143  000016                     ??_config:
+   144                           
+   145                           ; 1 bytes @ 0x15
+   146  000016                     	ds	2
+   147  000018                     ??_main:
+   148                           
+   149                           ; 1 bytes @ 0x17
+   150  000018                     	ds	2
    151                           
-   152                           ;main.c: 21: LATDbits.LATD0 = 0;
-   153  00FF90  908C               	bcf	3980,0,c	;volatile
-   154                           
-   155                           ;main.c: 22: _delay((unsigned long)((10)*(64000000/4000.0)));
-   156  00FF92  0ED0               	movlw	208
-   157  00FF94  6E01               	movwf	??_main& (0+255),c
-   158  00FF96  0ECA               	movlw	202
-   159  00FF98                     u27:
-   160  00FF98  2EE8               	decfsz	wreg,f,c
-   161  00FF9A  D7FE               	bra	u27
-   162  00FF9C  2E01               	decfsz	??_main& (0+255),f,c
-   163  00FF9E  D7FC               	bra	u27
-   164  00FFA0  D7EF               	goto	l60
-   165  00FFA2                     __end_of_main:
-   166                           	opt stack 0
-   167                           wreg	equ	0xFE8
-   168                           
-   169 ;; *************** function _config *****************
-   170 ;; Defined at:
-   171 ;;		line 13 in file "config.c"
-   172 ;; Parameters:    Size  Location     Type
-   173 ;;		None
-   174 ;; Auto vars:     Size  Location     Type
-   175 ;;		None
-   176 ;; Return value:  Size  Location     Type
-   177 ;;                  1    wreg      void 
-   178 ;; Registers used:
-   179 ;;		wreg, status,2
-   180 ;; Tracked objects:
-   181 ;;		On entry : 0/0
-   182 ;;		On exit  : 0/0
-   183 ;;		Unchanged: 0/0
-   184 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   152 ;;
+   153 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   154 ;;
+   155 ;; *************** function _main *****************
+   156 ;; Defined at:
+   157 ;;		line 18 in file "main.c"
+   158 ;; Parameters:    Size  Location     Type
+   159 ;;		None
+   160 ;; Auto vars:     Size  Location     Type
+   161 ;;		None
+   162 ;; Return value:  Size  Location     Type
+   163 ;;                  1    wreg      void 
+   164 ;; Registers used:
+   165 ;;		wreg, status,2, status,0, cstack
+   166 ;; Tracked objects:
+   167 ;;		On entry : 0/0
+   168 ;;		On exit  : 0/0
+   169 ;;		Unchanged: 0/0
+   170 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   185 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   171 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   186 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   172 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   187 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   173 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   188 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   174 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   189 ;;Total ram usage:        0 bytes
-   190 ;; Hardware stack levels used:    1
-   191 ;; This function calls:
-   192 ;;		Nothing
-   193 ;; This function is called by:
-   194 ;;		_main
-   195 ;; This function uses a non-reentrant model
-   196 ;;
+   175 ;;Total ram usage:        2 bytes
+   176 ;; Hardware stack levels required when called:    3
+   177 ;; This function calls:
+   178 ;;		_I2C_Master_Start
+   179 ;;		_I2C_Master_Stop
+   180 ;;		_I2C_Write_Display
+   181 ;;		_config
+   182 ;; This function is called by:
+   183 ;;		Startup code after reset
+   184 ;; This function uses a non-reentrant model
+   185 ;;
+   186                           
+   187                           	psect	text0
+   188  00FE7A                     __ptext0:
+   189                           	opt stack 0
+   190  00FE7A                     _main:
+   191                           	opt stack 28
+   192                           
+   193                           ;main.c: 20: config();
+   194                           
+   195                           ;incstack = 0
+   196  00FE7A  ECB9  F07F         	call	_config	;wreg free
    197                           
-   198                           	psect	text1
-   199  00FFA2                     __ptext1:
-   200                           	opt stack 0
-   201  00FFA2                     _config:
-   202                           	opt stack 30
-   203                           
-   204                           ;config.c: 16: OSCCONbits.IRCF0=1;
-   205                           
-   206                           ;incstack = 0
-   207  00FFA2  88D3               	bsf	4051,4,c	;volatile
-   208                           
-   209                           ;config.c: 17: OSCCONbits.IRCF1=1;
-   210  00FFA4  8AD3               	bsf	4051,5,c	;volatile
-   211                           
-   212                           ;config.c: 18: OSCCONbits.IRCF2=1;
-   213  00FFA6  8CD3               	bsf	4051,6,c	;volatile
+   198                           ;main.c: 22: I2C_Master_Start();
+   199  00FE7E  ECFA  F07E         	call	_I2C_Master_Start	;wreg free
+   200                           
+   201                           ;main.c: 23: I2C_Write_Display(0x3C);
+   202  00FE82  0E00               	movlw	0
+   203  00FE84  6E03               	movwf	I2C_Write_Display@d+1,c
+   204  00FE86  0E3C               	movlw	60
+   205  00FE88  6E02               	movwf	I2C_Write_Display@d,c
+   206  00FE8A  EC02  F07F         	call	_I2C_Write_Display	;wreg free
+   207                           
+   208                           ;main.c: 24: I2C_Write_Display(0x69);
+   209  00FE8E  0E00               	movlw	0
+   210  00FE90  6E03               	movwf	I2C_Write_Display@d+1,c
+   211  00FE92  0E69               	movlw	105
+   212  00FE94  6E02               	movwf	I2C_Write_Display@d,c
+   213  00FE96  EC02  F07F         	call	_I2C_Write_Display	;wreg free
    214                           
-   215                           ;config.c: 19: OSCTUNEbits.PLLEN = 1;
-   216  00FFA8  8C9B               	bsf	3995,6,c	;volatile
-   217                           
-   218                           ;config.c: 20: INTCONbits.GIE=0;
-   219  00FFAA  9EF2               	bcf	intcon,7,c	;volatile
-   220                           
-   221                           ;config.c: 22: ANSELA=0X00;
-   222  00FFAC  0E00               	movlw	0
-   223  00FFAE  010F               	movlb	15	; () banked
-   224  00FFB0  6F38               	movwf	56,b	;volatile
-   225                           
-   226                           ;config.c: 23: ANSELB=0X00;
-   227  00FFB2  0E00               	movlw	0
-   228  00FFB4  6F39               	movwf	57,b	;volatile
-   229                           
-   230                           ;config.c: 24: ANSELC=0X00;
-   231  00FFB6  0E00               	movlw	0
-   232  00FFB8  6F3A               	movwf	58,b	;volatile
+   215                           ;main.c: 25: I2C_Master_Stop();
+   216  00FE9A  ECFE  F07E         	call	_I2C_Master_Stop	;wreg free
+   217  00FE9E                     
+   218                           ;main.c: 28: {
+   219                           ;main.c: 29: _delay((unsigned long)((100)*(64000000/4000.0)));
+   220  00FE9E  0E09               	movlw	9
+   221  00FEA0  6E19               	movwf	(??_main+1)& (0+255),c
+   222  00FEA2  0E1E               	movlw	30
+   223  00FEA4  6E18               	movwf	??_main& (0+255),c
+   224  00FEA6  0EE4               	movlw	228
+   225  00FEA8                     u137:
+   226  00FEA8  2EE8               	decfsz	wreg,f,c
+   227  00FEAA  D7FE               	bra	u137
+   228  00FEAC  2E18               	decfsz	??_main& (0+255),f,c
+   229  00FEAE  D7FC               	bra	u137
+   230  00FEB0  2E19               	decfsz	(??_main+1)& (0+255),f,c
+   231  00FEB2  D7FA               	bra	u137
+   232  00FEB4  D000               	nop2	
    233                           
-   234                           ;config.c: 25: ANSELD=0X00;
-   235  00FFBA  0E00               	movlw	0
-   236  00FFBC  6F3B               	movwf	59,b	;volatile
-   237                           
-   238                           ;config.c: 26: ANSELE=0X00;
-   239  00FFBE  0E00               	movlw	0
-   240  00FFC0  6F3C               	movwf	60,b	;volatile
-   241                           
-   242                           ;config.c: 27: TRISA=0X00;
-   243  00FFC2  0E00               	movlw	0
-   244  00FFC4  6E92               	movwf	3986,c	;volatile
-   245                           
-   246                           ;config.c: 28: TRISB=0X00;
-   247  00FFC6  0E00               	movlw	0
-   248  00FFC8  6E93               	movwf	3987,c	;volatile
-   249                           
-   250                           ;config.c: 29: TRISC=0X00;
-   251  00FFCA  0E00               	movlw	0
-   252  00FFCC  6E94               	movwf	3988,c	;volatile
+   234                           ;main.c: 30: I2C_Master_Start();
+   235  00FEB6  ECFA  F07E         	call	_I2C_Master_Start	;wreg free
+   236                           
+   237                           ;main.c: 31: I2C_Write_Display(0x3C);
+   238  00FEBA  0E00               	movlw	0
+   239  00FEBC  6E03               	movwf	I2C_Write_Display@d+1,c
+   240  00FEBE  0E3C               	movlw	60
+   241  00FEC0  6E02               	movwf	I2C_Write_Display@d,c
+   242  00FEC2  EC02  F07F         	call	_I2C_Write_Display	;wreg free
+   243                           
+   244                           ;main.c: 32: I2C_Write_Display(0x69);
+   245  00FEC6  0E00               	movlw	0
+   246  00FEC8  6E03               	movwf	I2C_Write_Display@d+1,c
+   247  00FECA  0E69               	movlw	105
+   248  00FECC  6E02               	movwf	I2C_Write_Display@d,c
+   249  00FECE  EC02  F07F         	call	_I2C_Write_Display	;wreg free
+   250                           
+   251                           ;main.c: 33: I2C_Master_Stop();
+   252  00FED2  ECFE  F07E         	call	_I2C_Master_Stop	;wreg free
    253                           
-   254                           ;config.c: 30: TRISD=0X00;
-   255  00FFCE  0E00               	movlw	0
-   256  00FFD0  6E95               	movwf	3989,c	;volatile
-   257                           
-   258                           ;config.c: 31: TRISE=0X00;
-   259  00FFD2  0E00               	movlw	0
-   260  00FFD4  6E96               	movwf	3990,c	;volatile
-   261                           
-   262                           ;config.c: 32: PORTA=0X00;
-   263  00FFD6  0E00               	movlw	0
-   264  00FFD8  6E80               	movwf	3968,c	;volatile
-   265                           
-   266                           ;config.c: 33: PORTB=0X00;
-   267  00FFDA  0E00               	movlw	0
-   268  00FFDC  6E81               	movwf	3969,c	;volatile
-   269                           
-   270                           ;config.c: 34: PORTC=0X00;
-   271  00FFDE  0E00               	movlw	0
-   272  00FFE0  6E82               	movwf	3970,c	;volatile
-   273                           
-   274                           ;config.c: 35: PORTD=0X00;
-   275  00FFE2  0E00               	movlw	0
-   276  00FFE4  6E83               	movwf	3971,c	;volatile
-   277                           
-   278                           ;config.c: 36: PORTE=0X00;
-   279  00FFE6  0E00               	movlw	0
-   280  00FFE8  6E84               	movwf	3972,c	;volatile
-   281                           
-   282                           ;config.c: 37: LATA=0X00;
-   283  00FFEA  0E00               	movlw	0
-   284  00FFEC  6E89               	movwf	3977,c	;volatile
-   285                           
-   286                           ;config.c: 38: LATB=0X00;
-   287  00FFEE  0E00               	movlw	0
-   288  00FFF0  6E8A               	movwf	3978,c	;volatile
-   289                           
-   290                           ;config.c: 39: LATC=0X00;
-   291  00FFF2  0E00               	movlw	0
-   292  00FFF4  6E8B               	movwf	3979,c	;volatile
-   293                           
-   294                           ;config.c: 40: LATD=0X00;
-   295  00FFF6  0E00               	movlw	0
-   296  00FFF8  6E8C               	movwf	3980,c	;volatile
-   297                           
-   298                           ;config.c: 41: LATE=0X00;
-   299  00FFFA  0E00               	movlw	0
-   300  00FFFC  6E8D               	movwf	3981,c	;volatile
-   301                           
-   302                           ; BSR set to: 15
-   303  00FFFE  0012               	return		;funcret
-   304  010000                     __end_of_config:
+   254                           ;main.c: 34: _delay((unsigned long)((100)*(64000000/4000.0)));
+   255  00FED6  0E09               	movlw	9
+   256  00FED8  6E19               	movwf	(??_main+1)& (0+255),c
+   257  00FEDA  0E1E               	movlw	30
+   258  00FEDC  6E18               	movwf	??_main& (0+255),c
+   259  00FEDE  0EE4               	movlw	228
+   260  00FEE0                     u147:
+   261  00FEE0  2EE8               	decfsz	wreg,f,c
+   262  00FEE2  D7FE               	bra	u147
+   263  00FEE4  2E18               	decfsz	??_main& (0+255),f,c
+   264  00FEE6  D7FC               	bra	u147
+   265  00FEE8  2E19               	decfsz	(??_main+1)& (0+255),f,c
+   266  00FEEA  D7FA               	bra	u147
+   267  00FEEC  D000               	nop2	
+   268  00FEEE  D7D7               	goto	l70
+   269  00FEF0                     __end_of_main:
+   270                           	opt stack 0
+   271                           wreg	equ	0xFE8
+   272                           
+   273 ;; *************** function _config *****************
+   274 ;; Defined at:
+   275 ;;		line 15 in file "config.c"
+   276 ;; Parameters:    Size  Location     Type
+   277 ;;		None
+   278 ;; Auto vars:     Size  Location     Type
+   279 ;;		None
+   280 ;; Return value:  Size  Location     Type
+   281 ;;                  1    wreg      void 
+   282 ;; Registers used:
+   283 ;;		wreg, status,2, status,0, cstack
+   284 ;; Tracked objects:
+   285 ;;		On entry : 0/0
+   286 ;;		On exit  : 0/0
+   287 ;;		Unchanged: 0/0
+   288 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   289 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   290 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   291 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   292 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   293 ;;Total ram usage:        2 bytes
+   294 ;; Hardware stack levels used:    1
+   295 ;; Hardware stack levels required when called:    2
+   296 ;; This function calls:
+   297 ;;		_I2C_Master_Init
+   298 ;; This function is called by:
+   299 ;;		_main
+   300 ;; This function uses a non-reentrant model
+   301 ;;
+   302                           
+   303                           	psect	text1
+   304  00FF72                     __ptext1:
    305                           	opt stack 0
-   306  0000                     intcon	equ	0xFF2
-   307                           wreg	equ	0xFE8
-   308                           intcon	equ	0xFF2
-   309                           wreg	equ	0xFE8
+   306  00FF72                     _config:
+   307                           	opt stack 28
+   308                           
+   309                           ;config.c: 18: OSCCONbits.IRCF0=1;
    310                           
-   311                           	psect	rparam
-   312  0000                     intcon	equ	0xFF2
-   313                           wreg	equ	0xFE8
+   311                           ;incstack = 0
+   312  00FF72  88D3               	bsf	4051,4,c	;volatile
+   313                           
+   314                           ;config.c: 19: OSCCONbits.IRCF1=1;
+   315  00FF74  8AD3               	bsf	4051,5,c	;volatile
+   316                           
+   317                           ;config.c: 20: OSCCONbits.IRCF2=1;
+   318  00FF76  8CD3               	bsf	4051,6,c	;volatile
+   319                           
+   320                           ;config.c: 21: OSCTUNEbits.PLLEN = 1;
+   321  00FF78  8C9B               	bsf	3995,6,c	;volatile
+   322                           
+   323                           ;config.c: 22: INTCONbits.GIE=0;
+   324  00FF7A  9EF2               	bcf	intcon,7,c	;volatile
+   325                           
+   326                           ;config.c: 24: ANSELA=0X00;
+   327  00FF7C  0E00               	movlw	0
+   328  00FF7E  010F               	movlb	15	; () banked
+   329  00FF80  6F38               	movwf	56,b	;volatile
+   330                           
+   331                           ;config.c: 25: ANSELB=0X00;
+   332  00FF82  0E00               	movlw	0
+   333  00FF84  6F39               	movwf	57,b	;volatile
+   334                           
+   335                           ;config.c: 26: ANSELC=0X00;
+   336  00FF86  0E00               	movlw	0
+   337  00FF88  6F3A               	movwf	58,b	;volatile
+   338                           
+   339                           ;config.c: 27: ANSELD=0X00;
+   340  00FF8A  0E00               	movlw	0
+   341  00FF8C  6F3B               	movwf	59,b	;volatile
+   342                           
+   343                           ;config.c: 28: ANSELE=0X00;
+   344  00FF8E  0E00               	movlw	0
+   345  00FF90  6F3C               	movwf	60,b	;volatile
+   346                           
+   347                           ;config.c: 29: TRISA=0X00;
+   348  00FF92  0E00               	movlw	0
+   349  00FF94  6E92               	movwf	3986,c	;volatile
+   350                           
+   351                           ;config.c: 30: TRISB=0X00;
+   352  00FF96  0E00               	movlw	0
+   353  00FF98  6E93               	movwf	3987,c	;volatile
+   354                           
+   355                           ;config.c: 31: TRISC=0X00;
+   356  00FF9A  0E00               	movlw	0
+   357  00FF9C  6E94               	movwf	3988,c	;volatile
+   358                           
+   359                           ;config.c: 32: TRISD=0X00;
+   360  00FF9E  0E00               	movlw	0
+   361  00FFA0  6E95               	movwf	3989,c	;volatile
+   362                           
+   363                           ;config.c: 33: TRISE=0X00;
+   364  00FFA2  0E00               	movlw	0
+   365  00FFA4  6E96               	movwf	3990,c	;volatile
+   366                           
+   367                           ;config.c: 34: PORTA=0X00;
+   368  00FFA6  0E00               	movlw	0
+   369  00FFA8  6E80               	movwf	3968,c	;volatile
+   370                           
+   371                           ;config.c: 35: PORTB=0X00;
+   372  00FFAA  0E00               	movlw	0
+   373  00FFAC  6E81               	movwf	3969,c	;volatile
+   374                           
+   375                           ;config.c: 36: PORTC=0X00;
+   376  00FFAE  0E00               	movlw	0
+   377  00FFB0  6E82               	movwf	3970,c	;volatile
+   378                           
+   379                           ;config.c: 37: PORTD=0X00;
+   380  00FFB2  0E00               	movlw	0
+   381  00FFB4  6E83               	movwf	3971,c	;volatile
+   382                           
+   383                           ;config.c: 38: PORTE=0X00;
+   384  00FFB6  0E00               	movlw	0
+   385  00FFB8  6E84               	movwf	3972,c	;volatile
+   386                           
+   387                           ;config.c: 39: LATA=0X00;
+   388  00FFBA  0E00               	movlw	0
+   389  00FFBC  6E89               	movwf	3977,c	;volatile
+   390                           
+   391                           ;config.c: 40: LATB=0X00;
+   392  00FFBE  0E00               	movlw	0
+   393  00FFC0  6E8A               	movwf	3978,c	;volatile
+   394                           
+   395                           ;config.c: 41: LATC=0X00;
+   396  00FFC2  0E00               	movlw	0
+   397  00FFC4  6E8B               	movwf	3979,c	;volatile
+   398                           
+   399                           ;config.c: 42: LATD=0X00;
+   400  00FFC6  0E00               	movlw	0
+   401  00FFC8  6E8C               	movwf	3980,c	;volatile
+   402                           
+   403                           ;config.c: 43: LATE=0X00;
+   404  00FFCA  0E00               	movlw	0
+   405  00FFCC  6E8D               	movwf	3981,c	;volatile
+   406                           
+   407                           ; BSR set to: 15
+   408                           ;config.c: 45: TRISCbits.TRISC3=1;
+   409  00FFCE  8694               	bsf	3988,3,c	;volatile
+   410                           
+   411                           ; BSR set to: 15
+   412                           ;config.c: 46: TRISCbits.TRISC4=1;
+   413  00FFD0  8894               	bsf	3988,4,c	;volatile
+   414                           
+   415                           ; BSR set to: 15
+   416                           ;config.c: 47: I2C_Master_Init(100000);
+   417  00FFD2  0EA0               	movlw	160
+   418  00FFD4  6E0E               	movwf	I2C_Master_Init@c,c
+   419  00FFD6  0E86               	movlw	134
+   420  00FFD8  6E0F               	movwf	I2C_Master_Init@c+1,c
+   421  00FFDA  0E01               	movlw	1
+   422  00FFDC  6E10               	movwf	I2C_Master_Init@c+2,c
+   423  00FFDE  0E00               	movlw	0
+   424  00FFE0  6E11               	movwf	I2C_Master_Init@c+3,c
+   425  00FFE2  EC10  F07F         	call	_I2C_Master_Init	;wreg free
+   426                           
+   427                           ;config.c: 48: _delay((unsigned long)((100)*(64000000/4000.0)));
+   428  00FFE6  0E09               	movlw	9
+   429  00FFE8  6E17               	movwf	(??_config+1)& (0+255),c
+   430  00FFEA  0E1E               	movlw	30
+   431  00FFEC  6E16               	movwf	??_config& (0+255),c
+   432  00FFEE  0EE4               	movlw	228
+   433  00FFF0                     u157:
+   434  00FFF0  2EE8               	decfsz	wreg,f,c
+   435  00FFF2  D7FE               	bra	u157
+   436  00FFF4  2E16               	decfsz	??_config& (0+255),f,c
+   437  00FFF6  D7FC               	bra	u157
+   438  00FFF8  2E17               	decfsz	(??_config+1)& (0+255),f,c
+   439  00FFFA  D7FA               	bra	u157
+   440  00FFFC  D000               	nop2	
+   441  00FFFE  0012               	return		;funcret
+   442  010000                     __end_of_config:
+   443                           	opt stack 0
+   444                           intcon	equ	0xFF2
+   445                           wreg	equ	0xFE8
+   446                           
+   447 ;; *************** function _I2C_Master_Init *****************
+   448 ;; Defined at:
+   449 ;;		line 21 in file "i2c.c"
+   450 ;; Parameters:    Size  Location     Type
+   451 ;;  c               4   13[COMRAM] unsigned long 
+   452 ;; Auto vars:     Size  Location     Type
+   453 ;;		None
+   454 ;; Return value:  Size  Location     Type
+   455 ;;                  1    wreg      void 
+   456 ;; Registers used:
+   457 ;;		wreg, status,2, status,0, cstack
+   458 ;; Tracked objects:
+   459 ;;		On entry : 0/0
+   460 ;;		On exit  : 0/0
+   461 ;;		Unchanged: 0/0
+   462 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   463 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   464 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   465 ;;      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   466 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   467 ;;Total ram usage:        8 bytes
+   468 ;; Hardware stack levels used:    1
+   469 ;; Hardware stack levels required when called:    1
+   470 ;; This function calls:
+   471 ;;		___lldiv
+   472 ;; This function is called by:
+   473 ;;		_config
+   474 ;; This function uses a non-reentrant model
+   475 ;;
+   476                           
+   477                           	psect	text2
+   478  00FE20                     __ptext2:
+   479                           	opt stack 0
+   480  00FE20                     _I2C_Master_Init:
+   481                           	opt stack 28
+   482                           
+   483                           ;i2c.c: 23: SSPCON1 = 0b00101000;
+   484                           
+   485                           ;incstack = 0
+   486  00FE20  0E28               	movlw	40
+   487  00FE22  6EC6               	movwf	4038,c	;volatile
+   488                           
+   489                           ;i2c.c: 24: SSPCON2 = 0x00;
+   490  00FE24  0E00               	movlw	0
+   491  00FE26  6EC5               	movwf	4037,c	;volatile
+   492                           
+   493                           ;i2c.c: 25: SSPADD = (64000000/(4*c))-1;
+   494  00FE28  0E00               	movlw	0
+   495  00FE2A  6E01               	movwf	___lldiv@dividend,c
+   496  00FE2C  0E90               	movlw	144
+   497  00FE2E  6E02               	movwf	___lldiv@dividend+1,c
+   498  00FE30  0ED0               	movlw	208
+   499  00FE32  6E03               	movwf	___lldiv@dividend+2,c
+   500  00FE34  0E03               	movlw	3
+   501  00FE36  6E04               	movwf	___lldiv@dividend+3,c
+   502  00FE38  C00E  F012         	movff	I2C_Master_Init@c,??_I2C_Master_Init
+   503  00FE3C  C00F  F013         	movff	I2C_Master_Init@c+1,??_I2C_Master_Init+1
+   504  00FE40  C010  F014         	movff	I2C_Master_Init@c+2,??_I2C_Master_Init+2
+   505  00FE44  C011  F015         	movff	I2C_Master_Init@c+3,??_I2C_Master_Init+3
+   506  00FE48  0E02               	movlw	2
+   507  00FE4A                     u125:
+   508  00FE4A  90D8               	bcf	status,0,c
+   509  00FE4C  3612               	rlcf	??_I2C_Master_Init,f,c
+   510  00FE4E  3613               	rlcf	??_I2C_Master_Init+1,f,c
+   511  00FE50  3614               	rlcf	??_I2C_Master_Init+2,f,c
+   512  00FE52  3615               	rlcf	??_I2C_Master_Init+3,f,c
+   513  00FE54  2EE8               	decfsz	wreg,f,c
+   514  00FE56  D7F9               	goto	u125
+   515  00FE58  C012  F005         	movff	??_I2C_Master_Init,___lldiv@divisor
+   516  00FE5C  C013  F006         	movff	??_I2C_Master_Init+1,___lldiv@divisor+1
+   517  00FE60  C014  F007         	movff	??_I2C_Master_Init+2,___lldiv@divisor+2
+   518  00FE64  C015  F008         	movff	??_I2C_Master_Init+3,___lldiv@divisor+3
+   519  00FE68  EC78  F07F         	call	___lldiv	;wreg free
+   520  00FE6C  0401               	decf	?___lldiv,w,c
+   521  00FE6E  6EC8               	movwf	4040,c	;volatile
+   522                           
+   523                           ;i2c.c: 26: SSPSTAT = 0x00;
+   524  00FE70  0E00               	movlw	0
+   525  00FE72  6EC7               	movwf	4039,c	;volatile
+   526                           
+   527                           ;i2c.c: 27: TRISCbits.TRISC3=1;
+   528  00FE74  8694               	bsf	3988,3,c	;volatile
+   529                           
+   530                           ;i2c.c: 28: TRISCbits.TRISC4=1;
+   531  00FE76  8894               	bsf	3988,4,c	;volatile
+   532  00FE78  0012               	return		;funcret
+   533  00FE7A                     __end_of_I2C_Master_Init:
+   534                           	opt stack 0
+   535                           intcon	equ	0xFF2
+   536                           wreg	equ	0xFE8
+   537                           status	equ	0xFD8
+   538                           
+   539 ;; *************** function ___lldiv *****************
+   540 ;; Defined at:
+   541 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c"
+   542 ;; Parameters:    Size  Location     Type
+   543 ;;  dividend        4    0[COMRAM] unsigned long 
+   544 ;;  divisor         4    4[COMRAM] unsigned long 
+   545 ;; Auto vars:     Size  Location     Type
+   546 ;;  quotient        4    8[COMRAM] unsigned long 
+   547 ;;  counter         1   12[COMRAM] unsigned char 
+   548 ;; Return value:  Size  Location     Type
+   549 ;;                  4    0[COMRAM] unsigned long 
+   550 ;; Registers used:
+   551 ;;		wreg, status,2, status,0
+   552 ;; Tracked objects:
+   553 ;;		On entry : 0/0
+   554 ;;		On exit  : 0/0
+   555 ;;		Unchanged: 0/0
+   556 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   557 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   558 ;;      Locals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   559 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   560 ;;      Totals:        13       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   561 ;;Total ram usage:       13 bytes
+   562 ;; Hardware stack levels used:    1
+   563 ;; This function calls:
+   564 ;;		Nothing
+   565 ;; This function is called by:
+   566 ;;		_I2C_Master_Init
+   567 ;; This function uses a non-reentrant model
+   568 ;;
+   569                           
+   570                           	psect	text3
+   571  00FEF0                     __ptext3:
+   572                           	opt stack 0
+   573  00FEF0                     ___lldiv:
+   574                           	opt stack 28
+   575                           
+   576                           ;incstack = 0
+   577  00FEF0  0E00               	movlw	0
+   578  00FEF2  6E09               	movwf	___lldiv@quotient,c
+   579  00FEF4  0E00               	movlw	0
+   580  00FEF6  6E0A               	movwf	___lldiv@quotient+1,c
+   581  00FEF8  0E00               	movlw	0
+   582  00FEFA  6E0B               	movwf	___lldiv@quotient+2,c
+   583  00FEFC  0E00               	movlw	0
+   584  00FEFE  6E0C               	movwf	___lldiv@quotient+3,c
+   585  00FF00  5005               	movf	___lldiv@divisor,w,c
+   586  00FF02  1006               	iorwf	___lldiv@divisor+1,w,c
+   587  00FF04  1007               	iorwf	___lldiv@divisor+2,w,c
+   588  00FF06  1008               	iorwf	___lldiv@divisor+3,w,c
+   589  00FF08  B4D8               	btfsc	status,2,c
+   590  00FF0A  D02A               	goto	l472
+   591  00FF0C  0E01               	movlw	1
+   592  00FF0E  6E0D               	movwf	___lldiv@counter,c
+   593  00FF10  D006               	goto	l467
+   594  00FF12  90D8               	bcf	status,0,c
+   595  00FF14  3605               	rlcf	___lldiv@divisor,f,c
+   596  00FF16  3606               	rlcf	___lldiv@divisor+1,f,c
+   597  00FF18  3607               	rlcf	___lldiv@divisor+2,f,c
+   598  00FF1A  3608               	rlcf	___lldiv@divisor+3,f,c
+   599  00FF1C  2A0D               	incf	___lldiv@counter,f,c
+   600  00FF1E                     l467:
+   601  00FF1E  AE08               	btfss	___lldiv@divisor+3,7,c
+   602  00FF20  D7F8               	goto	l468
+   603  00FF22                     u100:
+   604  00FF22  90D8               	bcf	status,0,c
+   605  00FF24  3609               	rlcf	___lldiv@quotient,f,c
+   606  00FF26  360A               	rlcf	___lldiv@quotient+1,f,c
+   607  00FF28  360B               	rlcf	___lldiv@quotient+2,f,c
+   608  00FF2A  360C               	rlcf	___lldiv@quotient+3,f,c
+   609  00FF2C  5005               	movf	___lldiv@divisor,w,c
+   610  00FF2E  5C01               	subwf	___lldiv@dividend,w,c
+   611  00FF30  5006               	movf	___lldiv@divisor+1,w,c
+   612  00FF32  5802               	subwfb	___lldiv@dividend+1,w,c
+   613  00FF34  5007               	movf	___lldiv@divisor+2,w,c
+   614  00FF36  5803               	subwfb	___lldiv@dividend+2,w,c
+   615  00FF38  5008               	movf	___lldiv@divisor+3,w,c
+   616  00FF3A  5804               	subwfb	___lldiv@dividend+3,w,c
+   617  00FF3C  A0D8               	btfss	status,0,c
+   618  00FF3E  D009               	goto	l471
+   619  00FF40  5005               	movf	___lldiv@divisor,w,c
+   620  00FF42  5E01               	subwf	___lldiv@dividend,f,c
+   621  00FF44  5006               	movf	___lldiv@divisor+1,w,c
+   622  00FF46  5A02               	subwfb	___lldiv@dividend+1,f,c
+   623  00FF48  5007               	movf	___lldiv@divisor+2,w,c
+   624  00FF4A  5A03               	subwfb	___lldiv@dividend+2,f,c
+   625  00FF4C  5008               	movf	___lldiv@divisor+3,w,c
+   626  00FF4E  5A04               	subwfb	___lldiv@dividend+3,f,c
+   627  00FF50  8009               	bsf	___lldiv@quotient,0,c
+   628  00FF52                     l471:
+   629  00FF52  90D8               	bcf	status,0,c
+   630  00FF54  3208               	rrcf	___lldiv@divisor+3,f,c
+   631  00FF56  3207               	rrcf	___lldiv@divisor+2,f,c
+   632  00FF58  3206               	rrcf	___lldiv@divisor+1,f,c
+   633  00FF5A  3205               	rrcf	___lldiv@divisor,f,c
+   634  00FF5C  2E0D               	decfsz	___lldiv@counter,f,c
+   635  00FF5E  D7E1               	goto	u100
+   636  00FF60                     l472:
+   637  00FF60  C009  F001         	movff	___lldiv@quotient,?___lldiv
+   638  00FF64  C00A  F002         	movff	___lldiv@quotient+1,?___lldiv+1
+   639  00FF68  C00B  F003         	movff	___lldiv@quotient+2,?___lldiv+2
+   640  00FF6C  C00C  F004         	movff	___lldiv@quotient+3,?___lldiv+3
+   641  00FF70  0012               	return		;funcret
+   642  00FF72                     __end_of___lldiv:
+   643                           	opt stack 0
+   644                           intcon	equ	0xFF2
+   645                           wreg	equ	0xFE8
+   646                           status	equ	0xFD8
+   647                           
+   648 ;; *************** function _I2C_Write_Display *****************
+   649 ;; Defined at:
+   650 ;;		line 62 in file "i2c.c"
+   651 ;; Parameters:    Size  Location     Type
+   652 ;;  d               2    1[COMRAM] unsigned int 
+   653 ;; Auto vars:     Size  Location     Type
+   654 ;;		None
+   655 ;; Return value:  Size  Location     Type
+   656 ;;                  1    wreg      void 
+   657 ;; Registers used:
+   658 ;;		wreg, status,2, status,0, cstack
+   659 ;; Tracked objects:
+   660 ;;		On entry : 0/0
+   661 ;;		On exit  : 0/0
+   662 ;;		Unchanged: 0/0
+   663 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   664 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   665 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   666 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   667 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   668 ;;Total ram usage:        2 bytes
+   669 ;; Hardware stack levels used:    1
+   670 ;; Hardware stack levels required when called:    1
+   671 ;; This function calls:
+   672 ;;		_I2C_Master_Wait
+   673 ;; This function is called by:
+   674 ;;		_main
+   675 ;; This function uses a non-reentrant model
+   676 ;;
+   677                           
+   678                           	psect	text4
+   679  00FE04                     __ptext4:
+   680                           	opt stack 0
+   681  00FE04                     _I2C_Write_Display:
+   682                           	opt stack 29
+   683                           
+   684                           ;i2c.c: 64: I2C_Master_Wait();
+   685                           
+   686                           ;incstack = 0
+   687  00FE04  EC07  F07F         	call	_I2C_Master_Wait	;wreg free
+   688                           
+   689                           ;i2c.c: 65: SSPBUF = d;
+   690  00FE08  C002  FFC9         	movff	I2C_Write_Display@d,4041	;volatile
+   691  00FE0C  0012               	return		;funcret
+   692  00FE0E                     __end_of_I2C_Write_Display:
+   693                           	opt stack 0
+   694                           intcon	equ	0xFF2
+   695                           wreg	equ	0xFE8
+   696                           status	equ	0xFD8
+   697                           
+   698 ;; *************** function _I2C_Master_Stop *****************
+   699 ;; Defined at:
+   700 ;;		line 50 in file "i2c.c"
+   701 ;; Parameters:    Size  Location     Type
+   702 ;;		None
+   703 ;; Auto vars:     Size  Location     Type
+   704 ;;		None
+   705 ;; Return value:  Size  Location     Type
+   706 ;;                  1    wreg      void 
+   707 ;; Registers used:
+   708 ;;		wreg, status,2, status,0, cstack
+   709 ;; Tracked objects:
+   710 ;;		On entry : 0/0
+   711 ;;		On exit  : 0/0
+   712 ;;		Unchanged: 0/0
+   713 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   714 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   715 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   716 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   717 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   718 ;;Total ram usage:        0 bytes
+   719 ;; Hardware stack levels used:    1
+   720 ;; Hardware stack levels required when called:    1
+   721 ;; This function calls:
+   722 ;;		_I2C_Master_Wait
+   723 ;; This function is called by:
+   724 ;;		_main
+   725 ;; This function uses a non-reentrant model
+   726 ;;
+   727                           
+   728                           	psect	text5
+   729  00FDFC                     __ptext5:
+   730                           	opt stack 0
+   731  00FDFC                     _I2C_Master_Stop:
+   732                           	opt stack 29
+   733                           
+   734                           ;i2c.c: 52: I2C_Master_Wait();
+   735                           
+   736                           ;incstack = 0
+   737  00FDFC  EC07  F07F         	call	_I2C_Master_Wait	;wreg free
+   738                           
+   739                           ;i2c.c: 53: SSPCON2bits.PEN = 1;
+   740  00FE00  84C5               	bsf	4037,2,c	;volatile
+   741  00FE02  0012               	return		;funcret
+   742  00FE04                     __end_of_I2C_Master_Stop:
+   743                           	opt stack 0
+   744                           intcon	equ	0xFF2
+   745                           wreg	equ	0xFE8
+   746                           status	equ	0xFD8
+   747                           
+   748 ;; *************** function _I2C_Master_Start *****************
+   749 ;; Defined at:
+   750 ;;		line 38 in file "i2c.c"
+   751 ;; Parameters:    Size  Location     Type
+   752 ;;		None
+   753 ;; Auto vars:     Size  Location     Type
+   754 ;;		None
+   755 ;; Return value:  Size  Location     Type
+   756 ;;                  1    wreg      void 
+   757 ;; Registers used:
+   758 ;;		wreg, status,2, status,0, cstack
+   759 ;; Tracked objects:
+   760 ;;		On entry : 0/0
+   761 ;;		On exit  : 0/0
+   762 ;;		Unchanged: 0/0
+   763 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   764 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   765 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   766 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   767 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   768 ;;Total ram usage:        0 bytes
+   769 ;; Hardware stack levels used:    1
+   770 ;; Hardware stack levels required when called:    1
+   771 ;; This function calls:
+   772 ;;		_I2C_Master_Wait
+   773 ;; This function is called by:
+   774 ;;		_main
+   775 ;; This function uses a non-reentrant model
+   776 ;;
+   777                           
+   778                           	psect	text6
+   779  00FDF4                     __ptext6:
+   780                           	opt stack 0
+   781  00FDF4                     _I2C_Master_Start:
+   782                           	opt stack 29
+   783                           
+   784                           ;i2c.c: 40: I2C_Master_Wait();
+   785                           
+   786                           ;incstack = 0
+   787  00FDF4  EC07  F07F         	call	_I2C_Master_Wait	;wreg free
+   788                           
+   789                           ;i2c.c: 41: SSPCON2bits.SEN = 1;
+   790  00FDF8  80C5               	bsf	4037,0,c	;volatile
+   791  00FDFA  0012               	return		;funcret
+   792  00FDFC                     __end_of_I2C_Master_Start:
+   793                           	opt stack 0
+   794                           intcon	equ	0xFF2
+   795                           wreg	equ	0xFE8
+   796                           status	equ	0xFD8
+   797                           
+   798 ;; *************** function _I2C_Master_Wait *****************
+   799 ;; Defined at:
+   800 ;;		line 31 in file "i2c.c"
+   801 ;; Parameters:    Size  Location     Type
+   802 ;;		None
+   803 ;; Auto vars:     Size  Location     Type
+   804 ;;		None
+   805 ;; Return value:  Size  Location     Type
+   806 ;;                  1    wreg      void 
+   807 ;; Registers used:
+   808 ;;		wreg, status,2, status,0
+   809 ;; Tracked objects:
+   810 ;;		On entry : 0/0
+   811 ;;		On exit  : 0/0
+   812 ;;		Unchanged: 0/0
+   813 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   814 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   815 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   816 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   817 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   818 ;;Total ram usage:        1 bytes
+   819 ;; Hardware stack levels used:    1
+   820 ;; This function calls:
+   821 ;;		Nothing
+   822 ;; This function is called by:
+   823 ;;		_I2C_Master_Start
+   824 ;;		_I2C_Master_Stop
+   825 ;;		_I2C_Write_Display
+   826 ;;		_I2C_Master_RepeatedStart
+   827 ;;		_I2C_Master_Write
+   828 ;;		_I2C_Master_Read
+   829 ;; This function uses a non-reentrant model
+   830 ;;
+   831                           
+   832                           	psect	text7
+   833  00FE0E                     __ptext7:
+   834                           	opt stack 0
+   835  00FE0E                     _I2C_Master_Wait:
+   836                           	opt stack 29
+   837                           
+   838                           ;i2c.c: 33: while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+   839                           
+   840                           ;incstack = 0
+   841  00FE0E  B4C7               	btfsc	4039,2,c	;volatile
+   842  00FE10  D7FE               	goto	_I2C_Master_Wait
+   843  00FE12  CFC5 F001          	movff	4037,??_I2C_Master_Wait	;volatile
+   844  00FE16  0E1F               	movlw	31
+   845  00FE18  1601               	andwf	??_I2C_Master_Wait,f,c
+   846  00FE1A  B4D8               	btfsc	status,2,c
+   847  00FE1C  0012               	return	
+   848  00FE1E  D7F7               	goto	_I2C_Master_Wait
+   849  00FE20                     __end_of_I2C_Master_Wait:
+   850                           	opt stack 0
+   851  0000                     intcon	equ	0xFF2
+   852                           wreg	equ	0xFE8
+   853                           status	equ	0xFD8
+   854                           intcon	equ	0xFF2
+   855                           wreg	equ	0xFE8
+   856                           status	equ	0xFD8
+   857                           
+   858                           	psect	rparam
+   859  0000                     intcon	equ	0xFF2
+   860                           wreg	equ	0xFE8
+   861                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -347,7 +925,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95      1       1
+    COMRAM           95     25      25
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -371,7 +949,12 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMRAM
 
-    None.
+    _main->_config
+    _config->_I2C_Master_Init
+    _I2C_Master_Init->___lldiv
+    _I2C_Write_Display->_I2C_Master_Wait
+    _I2C_Master_Stop->_I2C_Master_Wait
+    _I2C_Master_Start->_I2C_Master_Wait
 
 Critical Paths under _main in BANK0
 
@@ -442,19 +1025,52 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 1     1      0       0
-                                              0 COMRAM     1     1      0
+ (0) _main                                                 2     2      0     738
+                                             23 COMRAM     2     2      0
+                   _I2C_Master_Start
+                    _I2C_Master_Stop
+                  _I2C_Write_Display
                              _config
  ---------------------------------------------------------------------------------
- (1) _config                                               0     0      0       0
+ (1) _config                                               2     2      0     412
+                                             21 COMRAM     2     2      0
+                    _I2C_Master_Init
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 1
+ (2) _I2C_Master_Init                                      8     4      4     412
+                                             13 COMRAM     8     4      4
+                            ___lldiv
+ ---------------------------------------------------------------------------------
+ (3) ___lldiv                                             13     5      8     314
+                                              0 COMRAM    13     5      8
+ ---------------------------------------------------------------------------------
+ (1) _I2C_Write_Display                                    2     0      2     326
+                                              1 COMRAM     2     0      2
+                    _I2C_Master_Wait
+ ---------------------------------------------------------------------------------
+ (1) _I2C_Master_Stop                                      0     0      0       0
+                    _I2C_Master_Wait
+ ---------------------------------------------------------------------------------
+ (1) _I2C_Master_Start                                     0     0      0       0
+                    _I2C_Master_Wait
+ ---------------------------------------------------------------------------------
+ (2) _I2C_Master_Wait                                      1     1      0       0
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
+   _I2C_Master_Start
+     _I2C_Master_Wait
+   _I2C_Master_Stop
+     _I2C_Master_Wait
+   _I2C_Write_Display
+     _I2C_Master_Wait
    _config
+     _I2C_Master_Init
+       ___lldiv
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -462,7 +1078,7 @@ BITCOMRAM           5F      0       0       0        0.0%
 EEDATA             400      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              5F      1       1       1        1.1%
+COMRAM              5F     19      19       1       26.3%
 STACK                0      0       0       2        0.0%
 DATA                 0      0       0       3        0.0%
 BITBANK0            A0      0       0       4        0.0%
@@ -506,37 +1122,56 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Sat Sep 29 16:31:31 2018
+Symbol Table                                                                                   Sat Sep 29 16:52:33 2018
 
-                     l60 FF80                       u17 FF88                       u27 FF98  
-           __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000  
-           __CFG_CP3$OFF 000000             __CFG_CPB$OFF 000000             __CFG_CPD$OFF 000000  
-                    wreg 000FE8             __CFG_LVP$OFF 000000                     _LATA 000F89  
-                   _LATB 000F8A                     _LATC 000F8B                     _LATD 000F8C  
-                   _LATE 000F8D                     _main FF7C            __CFG_BORV$190 000000  
-                   start 0000            __CFG_IESO$OFF 000000             ___param_bank 000000  
-                  ?_main 0001                    _PORTA 000F80                    _PORTB 000F81  
-                  _PORTC 000F82                    _PORTD 000F83                    _PORTE 000F84  
-                  _TRISA 000F92                    _TRISB 000F93                    _TRISC 000F94  
-                  _TRISD 000F95                    _TRISE 000F96            __CFG_WRT0$OFF 000000  
-          __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000  
-         __CFG_EBTR0$OFF 000000           __CFG_FCMEN$OFF 000000           __CFG_EBTR1$OFF 000000  
-         __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000            __CFG_WRTB$OFF 000000  
-          __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000  
-     __CFG_MCLRE$EXTMCLR 000000           __CFG_BOREN$OFF 000000           __CFG_HFOFST$ON 000000  
-        __initialization FF76             __end_of_main FFA2                   ??_main 0001  
-          __activetblptr 000000                   _ANSELA 000F38                   _ANSELB 000F39  
-                 _ANSELC 000F3A                   _ANSELD 000F3B                   _ANSELE 000F3C  
-         __CFG_WDTEN$OFF 000000           __CFG_XINST$OFF 000000                   _config FFA2  
-             __accesstop 0060  __end_of__initialization FF76          __CFG_PBADEN$OFF 000000  
-          ___rparam_used 000001           __pcstackCOMRAM 0001          __CFG_PLLCFG$OFF 000000  
-     __CFG_CCP2MX$PORTC1 000000       __CFG_CCP3MX$PORTB5 000000                  ?_config 0001  
-        __CFG_PWRTEN$OFF 000000                  __Hparam 0000                  __Lparam 0000  
-        __size_of_config 005E          __CFG_STVREN$OFF 000000                  __pcinit FF76  
-                __ramtop 1000                  __ptext0 FF7C                  __ptext1 FFA2  
-   end_of_initialization FF76           __end_of_config 0000      start_initialization FF76  
-               ??_config 0001         __CFG_PRICLKEN$ON 000000                 _LATDbits 000F8C  
-       __CFG_WDTPS$32768 000000                 __Hrparam 0000                 __Lrparam 0000  
-      __CFG_P2BMX$PORTD2 000000            __size_of_main 0026              _OSCTUNEbits 000F9B  
-             _INTCONbits 000FF2               _OSCCONbits 000FD3        __CFG_T3CMX$PORTC0 000000  
-      __CFG_FOSC$INTIO67 000000  
+                        l70 FE9E                __CFG_CP0$OFF 000000                __CFG_CP1$OFF 000000  
+              __CFG_CP2$OFF 000000                __CFG_CP3$OFF 000000          I2C_Write_Display@d 0002  
+                       l471 FF52                         l472 FF60                         l467 FF1E  
+                       l468 FF12                __CFG_CPB$OFF 000000                         u100 FF22  
+                       u125 FE4A                         u137 FEA8                         u147 FEE0  
+                       u157 FFF0                __CFG_CPD$OFF 000000                         wreg 000FE8  
+              __CFG_LVP$OFF 000000                        _LATA 000F89                        _LATB 000F8A  
+                      _LATC 000F8B                        _LATD 000F8C                        _LATE 000F8D  
+                      _main FE7A               __CFG_BORV$190 000000                        start 0000  
+             __CFG_IESO$OFF 000000                ___param_bank 000000            ?_I2C_Master_Init 000E  
+          ?_I2C_Master_Wait 0001            ?_I2C_Master_Stop 0001                       ?_main 0001  
+           __end_of___lldiv FF72                       _PORTA 000F80                       _PORTB 000F81  
+                     _PORTC 000F82                       _PORTD 000F83                       _PORTE 000F84  
+                     _TRISA 000F92                       _TRISB 000F93                       _TRISC 000F94  
+                     _TRISD 000F95                       _TRISE 000F96               __CFG_WRT0$OFF 000000  
+             __CFG_WRT1$OFF 000000               __CFG_WRT2$OFF 000000               __CFG_WRT3$OFF 000000  
+            __CFG_EBTR0$OFF 000000              __CFG_FCMEN$OFF 000000              __CFG_EBTR1$OFF 000000  
+            __CFG_EBTR2$OFF 000000              __CFG_EBTR3$OFF 000000               __CFG_WRTB$OFF 000000  
+             __CFG_WRTC$OFF 000000               __CFG_WRTD$OFF 000000              __CFG_EBTRB$OFF 000000  
+        __CFG_MCLRE$EXTMCLR 000000              __CFG_BOREN$OFF 000000                       status 000FD8  
+            __CFG_HFOFST$ON 000000             __initialization FDEE                __end_of_main FEF0  
+                    ??_main 0018               __activetblptr 000000           ?_I2C_Master_Start 0001  
+        ??_I2C_Master_Start 0002                      _ANSELA 000F38                      _ANSELB 000F39  
+                    _ANSELC 000F3A                      _ANSELD 000F3B                      _ANSELE 000F3C  
+            __CFG_WDTEN$OFF 000000                      _SSPADD 000FC8                      _SSPBUF 000FC9  
+            __CFG_XINST$OFF 000000                   ??___lldiv 0009                      _config FF72  
+                __accesstop 0060     __end_of__initialization FDEE             __CFG_PBADEN$OFF 000000  
+             ___rparam_used 000001              __pcstackCOMRAM 0001             __CFG_PLLCFG$OFF 000000  
+        __CFG_CCP2MX$PORTC1 000000          __CFG_CCP3MX$PORTB5 000000                     ?_config 0001  
+         _I2C_Write_Display FE04          ?_I2C_Write_Display 0002         ??_I2C_Write_Display 0004  
+                   _SSPCON1 000FC6                     _SSPCON2 000FC5                     _SSPSTAT 000FC7  
+           __CFG_PWRTEN$OFF 000000                     __Hparam 0000                     __Lparam 0000  
+ __end_of_I2C_Write_Display FE0E                     ___lldiv FEF0             __size_of_config 008E  
+           __CFG_STVREN$OFF 000000                     __pcinit FDEE                     __ramtop 1000  
+                   __ptext0 FE7A                     __ptext1 FF72                     __ptext2 FE20  
+                   __ptext3 FEF0                     __ptext4 FE04                     __ptext5 FDFC  
+                   __ptext6 FDF4                     __ptext7 FE0E    __size_of_I2C_Master_Init 005A  
+  __size_of_I2C_Master_Wait 0012    __size_of_I2C_Master_Stop 0008        end_of_initialization FDEE  
+ __size_of_I2C_Master_Start 0008             ___lldiv@divisor 0005             ___lldiv@counter 000D  
+          I2C_Master_Init@c 000E                   _TRISCbits 000F94  __size_of_I2C_Write_Display 000A  
+            __end_of_config 0000         start_initialization FDEE           ??_I2C_Master_Init 0012  
+         ??_I2C_Master_Wait 0001           ??_I2C_Master_Stop 0002                    ??_config 0016  
+          _I2C_Master_Start FDF4                    ?___lldiv 0001            __CFG_PRICLKEN$ON 000000  
+          __CFG_WDTPS$32768 000000                    __Hrparam 0000                    __Lrparam 0000  
+         __CFG_P2BMX$PORTD2 000000            __size_of___lldiv 0082             _I2C_Master_Init FE20  
+           _I2C_Master_Wait FE0E             _I2C_Master_Stop FDFC                _SSP1CON2bits 000FC5  
+             __size_of_main 0076    __end_of_I2C_Master_Start FDFC                 _OSCTUNEbits 000F9B  
+                _INTCONbits 000FF2            ___lldiv@dividend 0001                  _OSCCONbits 000FD3  
+   __end_of_I2C_Master_Init FE7A     __end_of_I2C_Master_Wait FE20     __end_of_I2C_Master_Stop FE04  
+          ___lldiv@quotient 0009           __CFG_T3CMX$PORTC0 000000                 _SSPCON2bits 000FC5  
+         __CFG_FOSC$INTIO67 000000  
