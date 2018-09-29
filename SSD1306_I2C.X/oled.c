@@ -5,7 +5,7 @@
 #include <string.h>
 
 void I2CInit(void){
-    unsigned c = 100000; 
+    unsigned c = 400000; 
 	SSPCON1 = 0b00101000;
     SSPCON2 = 0x00;
     SSPADD = (_XTAL_FREQ/(4*c))-1;
@@ -27,7 +27,7 @@ void I2CSend(char dat) {
 void OLED_Init(char address) {
     _address = address << 1;
     I2CInit();
-    __delay_ms(4);
+    __delay_us(1);
     OLED_command(OLED_DISPLAYOFF);         // 0xAE
     OLED_command(OLED_SETDISPLAYCLOCKDIV); // 0xD5
     OLED_command(0x80);                    // the suggested ratio 0x80

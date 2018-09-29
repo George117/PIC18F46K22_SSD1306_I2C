@@ -21,18 +21,24 @@ void main(void)
     OLED_Init(0x3C);
     
     while(1)
-    {   
-        OLED_clear();
-        //                           x    y
-
-            OLED_string("Hello World!", 90, 10);
-            OLED_write();
-            //OLED_clear(); 
+    {  
+        //LATDbits.LATD0=1;
         
-        while(1)
+        //OLED_string("HelloWorld", 77, 24);
+        for(int i=0;i<128;i++)
         {
-            __delay_ms(100);
-        }
+            for(int j=0;j<32;j++)
+            {
+                OLED_pixel(i,j,1);
+                
+            }
+        }    
+        
+        OLED_write();
+        OLED_clear(); 
+        
+        LATDbits.LATD0=~LATDbits.LATD0;
+       
  
     }
 }

@@ -8659,7 +8659,7 @@ extern char * strrichr(const char *, int);
 
 # 7 "oled.c"
 void I2CInit(void){
-unsigned c = 100000;
+unsigned c = 400000;
 SSPCON1 = 0b00101000;
 SSPCON2 = 0x00;
 SSPADD = (64000000/(4*c))-1;
@@ -8681,7 +8681,7 @@ while ((SSPCON2 & 0b00011111 ) || ( SSPSTAT & 0b00000100 ) );
 void OLED_Init(char address) {
 _address = address << 1;
 I2CInit();
-_delay((unsigned long)((4)*(64000000/4000.0)));
+_delay((unsigned long)((1)*(64000000/4000000.0)));
 OLED_command(0xAE);
 OLED_command(0xD5);
 OLED_command(0x80);

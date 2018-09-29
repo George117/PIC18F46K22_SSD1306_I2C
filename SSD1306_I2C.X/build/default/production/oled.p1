@@ -7972,8 +7972,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "8
 [v _c `ui ~T0 @X0 1 a ]
-[; ;oled.c: 8: unsigned c = 100000;
-[e = _c -> -> 100000 `l `ui ]
+[; ;oled.c: 8: unsigned c = 400000;
+[e = _c -> -> 400000 `l `ui ]
 [; ;oled.c: 9: SSPCON1 = 0b00101000;
 "9
 [e = _SSPCON1 -> -> 40 `i `uc ]
@@ -8071,9 +8071,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;oled.c: 29: I2CInit();
 "29
 [e ( _I2CInit ..  ]
-[; ;oled.c: 30: _delay((unsigned long)((4)*(64000000/4000.0)));
+[; ;oled.c: 30: _delay((unsigned long)((1)*(64000000/4000000.0)));
 "30
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
 [; ;oled.c: 31: OLED_command(0xAE);
 "31
 [e ( _OLED_command (1 -> -> 174 `i `uc ]

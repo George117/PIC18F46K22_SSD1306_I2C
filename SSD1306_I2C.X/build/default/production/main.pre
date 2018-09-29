@@ -8695,17 +8695,23 @@ OLED_Init(0x3C);
 
 while(1)
 {
+
+
+
+for(int i=0;i<128;i++)
+{
+for(int j=0;j<32;j++)
+{
+OLED_pixel(i,j,1);
+
+}
+}
+
+OLED_write();
 OLED_clear();
 
+LATDbits.LATD0=~LATDbits.LATD0;
 
-OLED_string("Hello World!", 90, 10);
-OLED_write();
-
-
-while(1)
-{
-_delay((unsigned long)((100)*(64000000/4000.0)));
-}
 
 }
 }
