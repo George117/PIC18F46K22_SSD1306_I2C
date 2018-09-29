@@ -51,7 +51,7 @@
 [v _OLED_clear OLED_clear `(v  1 e 1 0 ]
 "126
 [v _OLED_char OLED_char `(v  1 e 1 0 ]
-"132
+"134
 [v _OLED_string OLED_string `(v  1 e 1 0 ]
 "50 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -305,7 +305,9 @@
 "17 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"33
+"19
+[v main@x_axis x_axis `ui  1 a 2 39 ]
+"38
 } 0
 "14 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\config.c
 [v _config config `(v  1 e 1 0 ]
@@ -319,39 +321,41 @@
 [v OLED_write@x x `ui  1 a 2 3 ]
 "91
 } 0
-"132
+"134
 [v _OLED_string OLED_string `(v  1 e 1 0 ]
 {
-"134
-[v OLED_string@pos pos `s  1 a 2 32 ]
 "136
-[v OLED_string@startx startx `s  1 a 2 30 ]
+[v OLED_string@pos pos `s  1 a 2 34 ]
+"138
+[v OLED_string@startx startx `s  1 a 2 32 ]
+"139
+[v OLED_string@starty starty `s  1 a 2 30 ]
 "137
-[v OLED_string@starty starty `s  1 a 2 28 ]
-"135
-[v OLED_string@character character `uc  1 a 1 34 ]
-"132
-[v OLED_string@str str `*.25uc  1 p 2 20 ]
-[v OLED_string@x x `s  1 p 2 22 ]
-[v OLED_string@y y `s  1 p 2 24 ]
-"144
+[v OLED_string@character character `uc  1 a 1 36 ]
+"134
+[v OLED_string@str str `*.25uc  1 p 2 22 ]
+[v OLED_string@x x `s  1 p 2 24 ]
+[v OLED_string@y y `s  1 p 2 26 ]
+"146
 } 0
 "126
 [v _OLED_char OLED_char `(v  1 e 1 0 ]
 {
 [v OLED_char@character character `uc  1 a 1 wreg ]
-"128
-[v OLED_char@offset offset `s  1 a 2 16 ]
-"127
-[v OLED_char@table_offset table_offset `s  1 a 2 14 ]
 "129
-[v OLED_char@i i `uc  1 a 1 19 ]
+[v OLED_char@offset offset `s  1 a 2 18 ]
+"128
+[v OLED_char@table_offset table_offset `s  1 a 2 16 ]
+"127
+[v OLED_char@_y _y `ui  1 a 2 14 ]
+"130
+[v OLED_char@i i `uc  1 a 1 21 ]
 "126
 [v OLED_char@character character `uc  1 a 1 wreg ]
 [v OLED_char@x x `s  1 p 2 6 ]
 [v OLED_char@y y `s  1 p 2 8 ]
-[v OLED_char@character character `uc  1 a 1 18 ]
-"131
+[v OLED_char@character character `uc  1 a 1 20 ]
+"132
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]

@@ -124,11 +124,13 @@ void OLED_pixel(short x, short y, char color){ //hmm, dosent include error check
     OLED_buffer[y_row] |= (color?1:0) << y_bit;
 }
 void OLED_char(char character, short x, short y) {
+    unsigned _y = y % 8;
     short table_offset = (character-0x20)*5;
-    short offset = y*16 + x;
+    short offset = (y-_y)*16 + x;
     char i = 0;
     for(; i < 5; i++) OLED_buffer[i+offset] = OLED_characters[i+table_offset];
 }
+
 void OLED_string(char* str, short x, short y) {
 
     short pos = 0;

@@ -7939,52 +7939,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 18: {
 [e :U _main ]
 [f ]
-[; ;main.c: 19: config();
 "19
-[e ( _config ..  ]
-[; ;main.c: 20: OLED_Init(0x3C);
+[v _x_axis `ui ~T0 @X0 1 a ]
+[; ;main.c: 19: unsigned x_axis = 0;
+[e = _x_axis -> -> 0 `i `ui ]
+[; ;main.c: 20: config();
 "20
+[e ( _config ..  ]
+[; ;main.c: 21: OLED_Init(0x3C);
+"21
 [e ( _OLED_Init (1 -> -> 60 `i `uc ]
-[; ;main.c: 22: while(1)
-"22
-[e :U 851 ]
-[; ;main.c: 23: {
+[; ;main.c: 23: while(1)
 "23
-{
-[; ;main.c: 24: OLED_clear();
+[e :U 851 ]
+[; ;main.c: 24: {
 "24
-[e ( _OLED_clear ..  ]
-[; ;main.c: 25: OLED_string("Hello World!\0", 0, 0);
+{
+[; ;main.c: 25: OLED_clear();
 "25
-[e ( _OLED_string (3 , , -> :s 1C `*uc -> -> 0 `i `s -> -> 0 `i `s ]
-[; ;main.c: 26: OLED_write();
-"26
-[e ( _OLED_write ..  ]
-[; ;main.c: 27: _delay((unsigned long)((100)*(64000000/4000.0)));
-"27
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-[; ;main.c: 28: OLED_clear();
-"28
 [e ( _OLED_clear ..  ]
-[; ;main.c: 29: OLED_string("Hello World!\0", 0, 0);
+[; ;main.c: 28: OLED_string("Hello World!", 90, 10);
+"28
+[e ( _OLED_string (3 , , -> :s 1C `*uc -> -> 90 `i `s -> -> 10 `i `s ]
+[; ;main.c: 29: OLED_write();
 "29
-[e ( _OLED_string (3 , , -> :s 2C `*uc -> -> 0 `i `s -> -> 0 `i `s ]
-[; ;main.c: 30: OLED_write();
-"30
 [e ( _OLED_write ..  ]
-[; ;main.c: 31: _delay((unsigned long)((100)*(64000000/4000.0)));
-"31
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 32: while(1)
 "32
+[e :U 854 ]
+[; ;main.c: 33: {
+"33
+{
+[; ;main.c: 34: _delay((unsigned long)((100)*(64000000/4000.0)));
+"34
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"35
+}
+[e :U 853 ]
+"32
+[e $U 854  ]
+[e :U 855 ]
+"37
 }
 [e :U 850 ]
-"22
+"23
 [e $U 851  ]
 [e :U 852 ]
-[; ;main.c: 32: }
-[; ;main.c: 33: }
-"33
+[; ;main.c: 35: }
+[; ;main.c: 37: }
+[; ;main.c: 38: }
+"38
 [e :UE 849 ]
 }
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 33 0 0 ]
-[a 2C 72 101 108 108 111 32 87 111 114 108 100 33 0 0 ]
+[a 1C 72 101 108 108 111 32 87 111 114 108 100 33 0 ]
+

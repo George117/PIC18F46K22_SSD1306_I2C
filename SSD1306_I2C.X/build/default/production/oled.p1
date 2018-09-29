@@ -8415,19 +8415,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _y `s ~T0 @X0 1 r3 ]
 [f ]
 "127
-[v _table_offset `s ~T0 @X0 1 a ]
-[; ;oled.c: 127: short table_offset = (character-0x20)*5;
-[e = _table_offset -> * - -> _character `i -> 32 `i -> 5 `i `s ]
+[v __y `ui ~T0 @X0 1 a ]
+[; ;oled.c: 127: unsigned _y = y % 8;
+[e = __y -> % -> _y `i -> 8 `i `ui ]
 "128
-[v _offset `s ~T0 @X0 1 a ]
-[; ;oled.c: 128: short offset = y*16 + x;
-[e = _offset -> + * -> _y `i -> 16 `i -> _x `i `s ]
+[v _table_offset `s ~T0 @X0 1 a ]
+[; ;oled.c: 128: short table_offset = (character-0x20)*5;
+[e = _table_offset -> * - -> _character `i -> 32 `i -> 5 `i `s ]
 "129
-[v _i `uc ~T0 @X0 1 a ]
-[; ;oled.c: 129: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;oled.c: 130: for(; i < 5; i++) OLED_buffer[i+offset] = OLED_characters[i+table_offset];
+[v _offset `s ~T0 @X0 1 a ]
+[; ;oled.c: 129: short offset = (y-_y)*16 + x;
+[e = _offset -> + * - -> _y `ui __y -> -> 16 `i `ui -> _x `ui `s ]
 "130
+[v _i `uc ~T0 @X0 1 a ]
+[; ;oled.c: 130: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;oled.c: 131: for(; i < 5; i++) OLED_buffer[i+offset] = OLED_characters[i+table_offset];
+"131
 {
 [e $ < -> _i `i -> 5 `i 879  ]
 [e $U 880  ]
@@ -8437,62 +8441,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> 5 `i 879  ]
 [e :U 880 ]
 }
-[; ;oled.c: 131: }
-"131
+[; ;oled.c: 132: }
+"132
 [e :UE 878 ]
 }
-"132
+"134
 [v _OLED_string `(v ~T0 @X0 1 ef3`*uc`s`s ]
 {
-[; ;oled.c: 132: void OLED_string(char* str, short x, short y) {
+[; ;oled.c: 134: void OLED_string(char* str, short x, short y) {
 [e :U _OLED_string ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [v _x `s ~T0 @X0 1 r2 ]
 [v _y `s ~T0 @X0 1 r3 ]
 [f ]
-"134
-[v _pos `s ~T0 @X0 1 a ]
-[; ;oled.c: 134: short pos = 0;
-[e = _pos -> -> 0 `i `s ]
-"135
-[v _character `uc ~T0 @X0 1 a ]
-[; ;oled.c: 135: char character = str[pos++];
-[e = _character *U + _str * -> ++ _pos -> -> 1 `i `s `x -> -> # *U _str `i `x ]
 "136
-[v _startx `s ~T0 @X0 1 a ]
-[; ;oled.c: 136: short startx = x;
-[e = _startx _x ]
+[v _pos `s ~T0 @X0 1 a ]
+[; ;oled.c: 136: short pos = 0;
+[e = _pos -> -> 0 `i `s ]
 "137
-[v _starty `s ~T0 @X0 1 a ]
-[; ;oled.c: 137: short starty = y;
-[e = _starty _y ]
-[; ;oled.c: 138: while(character != '\0') {
+[v _character `uc ~T0 @X0 1 a ]
+[; ;oled.c: 137: char character = str[pos++];
+[e = _character *U + _str * -> ++ _pos -> -> 1 `i `s `x -> -> # *U _str `i `x ]
 "138
+[v _startx `s ~T0 @X0 1 a ]
+[; ;oled.c: 138: short startx = x;
+[e = _startx _x ]
+"139
+[v _starty `s ~T0 @X0 1 a ]
+[; ;oled.c: 139: short starty = y;
+[e = _starty _y ]
+[; ;oled.c: 140: while(character != '\0') {
+"140
 [e $U 883  ]
 [e :U 884 ]
 {
-[; ;oled.c: 139: OLED_char(character, startx, starty);
-"139
+[; ;oled.c: 141: OLED_char(character, startx, starty);
+"141
 [e ( _OLED_char (3 , , _character _startx _starty ]
-[; ;oled.c: 140: if(startx >= 123) starty++;
-"140
+[; ;oled.c: 142: if(startx >= 123) starty++;
+"142
 [e $ ! >= -> _startx `i -> 123 `i 886  ]
 [e ++ _starty -> -> 1 `i `s ]
 [e :U 886 ]
-[; ;oled.c: 141: startx += 5;
-"141
-[e =+ _startx -> -> 5 `i `s ]
-[; ;oled.c: 142: character = str[pos++];
-"142
-[e = _character *U + _str * -> ++ _pos -> -> 1 `i `s `x -> -> # *U _str `i `x ]
+[; ;oled.c: 143: startx += 5;
 "143
+[e =+ _startx -> -> 5 `i `s ]
+[; ;oled.c: 144: character = str[pos++];
+"144
+[e = _character *U + _str * -> ++ _pos -> -> 1 `i `s `x -> -> # *U _str `i `x ]
+"145
 }
 [e :U 883 ]
-"138
+"140
 [e $ != -> _character `ui -> 0 `ui 884  ]
 [e :U 885 ]
-[; ;oled.c: 143: }
-[; ;oled.c: 144: }
-"144
+[; ;oled.c: 145: }
+[; ;oled.c: 146: }
+"146
 [e :UE 882 ]
 }

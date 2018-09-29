@@ -8689,18 +8689,23 @@ void OLED_string(char* str, short x, short y);
 # 17 "main.c"
 void main(void)
 {
+unsigned x_axis = 0;
 config();
 OLED_Init(0x3C);
 
 while(1)
 {
 OLED_clear();
-OLED_string("Hello World!\0", 0, 0);
+
+
+OLED_string("Hello World!", 90, 10);
 OLED_write();
+
+
+while(1)
+{
 _delay((unsigned long)((100)*(64000000/4000.0)));
-OLED_clear();
-OLED_string("Hello World!\0", 0, 0);
-OLED_write();
-_delay((unsigned long)((100)*(64000000/4000.0)));
+}
+
 }
 }
