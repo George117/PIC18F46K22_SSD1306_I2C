@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>bit_settings.h</itemPath>
       <itemPath>config.h</itemPath>
-      <itemPath>i2c.h</itemPath>
+      <itemPath>oled.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,7 +17,7 @@
                    projectFiles="true">
       <itemPath>config.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>i2c.c</itemPath>
+      <itemPath>oled.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

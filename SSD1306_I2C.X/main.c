@@ -12,25 +12,22 @@
 #include <pic18f46k22.h>
 #include "bit_settings.h"
 #include "config.h"
-#include "i2c.h"
-
+#include "oled.h"
 
 void main(void) 
 {
     config();
-    
-    I2C_Master_Start();
-    I2C_Write_Display(adress);
-	I2C_Write_Display(0x69);
-    I2C_Master_Stop();
+    OLED_Init(0x3C);
     
     while(1)
-    {
+    {   
+        OLED_clear();
+        OLED_string("Hello World!\0", 0, 0);
+        OLED_write();
         __delay_ms(100);
-        I2C_Master_Start();
-        I2C_Write_Display(adress);
-        I2C_Write_Display(0x69);
-        I2C_Master_Stop();
+        OLED_clear();
+        OLED_string("Hello World!\0", 0, 0);
+        OLED_write();
         __delay_ms(100);
     }
 }

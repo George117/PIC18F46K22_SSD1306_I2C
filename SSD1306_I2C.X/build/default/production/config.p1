@@ -86,8 +86,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S401 . . . ]
 "8534
 [v _TRISCbits `VS401 ~T0 @X0 0 e@3988 ]
-"36 i2c.h
-[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`ul ]
 [v F6949 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF6949 ~T0 @X0 0 e ]
@@ -6731,110 +6729,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "78
 [p x EBTRB=OFF ]
-[; ;i2c.h: 36: void I2C_Master_Init(unsigned long c);
-[; ;i2c.h: 37: void I2C_Master_Wait();
-[; ;i2c.h: 38: void I2C_Master_Start();
-[; ;i2c.h: 39: void I2C_Master_RepeatedStart();
-[; ;i2c.h: 40: void I2C_Master_Stop();
-[; ;i2c.h: 41: void I2C_Master_Write(unsigned d);
-[; ;i2c.h: 42: void I2C_Write_Display(unsigned d);
-[; ;i2c.h: 44: unsigned short I2C_Master_Read(unsigned short a);
-"15 config.c
+"14 config.c
 [v _config `(v ~T0 @X0 1 ef ]
-"16
+"15
 {
-[; ;config.c: 15: void config()
-[; ;config.c: 16: {
+[; ;config.c: 14: void config()
+[; ;config.c: 15: {
 [e :U _config ]
 [f ]
-[; ;config.c: 18: OSCCONbits.IRCF0=1;
-"18
+[; ;config.c: 17: OSCCONbits.IRCF0=1;
+"17
 [e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
-[; ;config.c: 19: OSCCONbits.IRCF1=1;
-"19
+[; ;config.c: 18: OSCCONbits.IRCF1=1;
+"18
 [e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
-[; ;config.c: 20: OSCCONbits.IRCF2=1;
-"20
+[; ;config.c: 19: OSCCONbits.IRCF2=1;
+"19
 [e = . . _OSCCONbits 1 6 -> -> 1 `i `uc ]
-[; ;config.c: 21: OSCTUNEbits.PLLEN = 1;
-"21
+[; ;config.c: 20: OSCTUNEbits.PLLEN = 1;
+"20
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;config.c: 22: INTCONbits.GIE=0;
-"22
+[; ;config.c: 21: INTCONbits.GIE=0;
+"21
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;config.c: 24: ANSELA=0X00;
-"24
+[; ;config.c: 23: ANSELA=0X00;
+"23
 [e = _ANSELA -> -> 0 `i `uc ]
-[; ;config.c: 25: ANSELB=0X00;
-"25
+[; ;config.c: 24: ANSELB=0X00;
+"24
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;config.c: 26: ANSELC=0X00;
-"26
+[; ;config.c: 25: ANSELC=0X00;
+"25
 [e = _ANSELC -> -> 0 `i `uc ]
-[; ;config.c: 27: ANSELD=0X00;
-"27
+[; ;config.c: 26: ANSELD=0X00;
+"26
 [e = _ANSELD -> -> 0 `i `uc ]
-[; ;config.c: 28: ANSELE=0X00;
-"28
+[; ;config.c: 27: ANSELE=0X00;
+"27
 [e = _ANSELE -> -> 0 `i `uc ]
-[; ;config.c: 29: TRISA=0X00;
-"29
+[; ;config.c: 28: TRISA=0X00;
+"28
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;config.c: 30: TRISB=0X00;
-"30
+[; ;config.c: 29: TRISB=0X00;
+"29
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;config.c: 31: TRISC=0X00;
-"31
+[; ;config.c: 30: TRISC=0X00;
+"30
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;config.c: 32: TRISD=0X00;
-"32
+[; ;config.c: 31: TRISD=0X00;
+"31
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;config.c: 33: TRISE=0X00;
-"33
+[; ;config.c: 32: TRISE=0X00;
+"32
 [e = _TRISE -> -> 0 `i `uc ]
-[; ;config.c: 34: PORTA=0X00;
-"34
+[; ;config.c: 33: PORTA=0X00;
+"33
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;config.c: 35: PORTB=0X00;
-"35
+[; ;config.c: 34: PORTB=0X00;
+"34
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;config.c: 36: PORTC=0X00;
-"36
+[; ;config.c: 35: PORTC=0X00;
+"35
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;config.c: 37: PORTD=0X00;
-"37
+[; ;config.c: 36: PORTD=0X00;
+"36
 [e = _PORTD -> -> 0 `i `uc ]
-[; ;config.c: 38: PORTE=0X00;
-"38
+[; ;config.c: 37: PORTE=0X00;
+"37
 [e = _PORTE -> -> 0 `i `uc ]
-[; ;config.c: 39: LATA=0X00;
-"39
+[; ;config.c: 38: LATA=0X00;
+"38
 [e = _LATA -> -> 0 `i `uc ]
-[; ;config.c: 40: LATB=0X00;
-"40
+[; ;config.c: 39: LATB=0X00;
+"39
 [e = _LATB -> -> 0 `i `uc ]
-[; ;config.c: 41: LATC=0X00;
-"41
+[; ;config.c: 40: LATC=0X00;
+"40
 [e = _LATC -> -> 0 `i `uc ]
-[; ;config.c: 42: LATD=0X00;
-"42
+[; ;config.c: 41: LATD=0X00;
+"41
 [e = _LATD -> -> 0 `i `uc ]
-[; ;config.c: 43: LATE=0X00;
-"43
+[; ;config.c: 42: LATE=0X00;
+"42
 [e = _LATE -> -> 0 `i `uc ]
-[; ;config.c: 45: TRISCbits.TRISC3=1;
-"45
+[; ;config.c: 44: TRISCbits.TRISC3=1;
+"44
 [e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
-[; ;config.c: 46: TRISCbits.TRISC4=1;
-"46
+[; ;config.c: 45: TRISCbits.TRISC4=1;
+"45
 [e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-[; ;config.c: 47: I2C_Master_Init(100000);
-"47
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-[; ;config.c: 48: _delay((unsigned long)((100)*(64000000/4000.0)));
-"48
+[; ;config.c: 46: _delay((unsigned long)((100)*(64000000/4000.0)));
+"46
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-[; ;config.c: 50: }
-"50
+[; ;config.c: 48: }
+"48
 [e :UE 849 ]
 }

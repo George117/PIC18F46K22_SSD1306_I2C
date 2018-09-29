@@ -3,6 +3,8 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -13,8 +15,8 @@
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
@@ -23,22 +25,34 @@
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"15 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\config.c
+"14 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\config.c
 [v _config config `(v  1 e 1 0 ]
-"21 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\i2c.c
-[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
-"31
-[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
-"38
-[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-"50
-[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-"62
-[v _I2C_Write_Display I2C_Write_Display `(v  1 e 1 0 ]
-"18 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\main.c
+"17 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"7 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\oled.c
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+"16
+[v _I2CStart I2CStart `(v  1 e 1 0 ]
+"19
+[v _I2CStop I2CStop `(v  1 e 1 0 ]
+"22
+[v _I2CSend I2CSend `(v  1 e 1 0 ]
+"27
+[v _OLED_Init OLED_Init `(v  1 e 1 0 ]
+"58
+[v _OLED_command OLED_command `(v  1 e 1 0 ]
+"74
+[v _OLED_write OLED_write `(v  1 e 1 0 ]
+"92
+[v _OLED_clear OLED_clear `(v  1 e 1 0 ]
+"126
+[v _OLED_char OLED_char `(v  1 e 1 0 ]
+"132
+[v _OLED_string OLED_string `(v  1 e 1 0 ]
 "50 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "95
@@ -116,7 +130,7 @@
 [v _OSCTUNEbits OSCTUNEbits `VES64  1 e 1 @3995 ]
 "13786
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
-[s S274 . 1 `uc 1 SEN 1 0 :1:0 
+[s S281 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -125,8 +139,8 @@
 `uc 1 ACKSTAT 1 0 :1:6 
 `uc 1 GCEN 1 0 :1:7 
 ]
-"13829
-[s S283 . 1 `uc 1 SEN1 1 0 :1:0 
+"14000
+[s S290 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
@@ -135,28 +149,107 @@
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S292 . 1 `uc 1 . 1 0 :1:0 
+[s S299 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S299 . 1 `uc 1 . 1 0 :1:0 
+[s S306 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S306 . 1 `S274 1 . 1 0 `S283 1 . 1 0 `S292 1 . 1 0 `S299 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES306  1 e 1 @4037 ]
-"14000
-[v _SSPCON2bits SSPCON2bits `VES306  1 e 1 @4037 ]
+[u S313 . 1 `S281 1 . 1 0 `S290 1 . 1 0 `S299 1 . 1 0 `S306 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES313  1 e 1 @4037 ]
 "14140
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
 "14378
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+[s S352 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"14479
+[s S355 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S358 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S367 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S372 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S377 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S382 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S387 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S390 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S393 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S398 . 1 `uc 1 BF1 1 0 :1:0 
+`uc 1 UA1 1 0 :1:1 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+`uc 1 CKE1 1 0 :1:6 
+`uc 1 SMP1 1 0 :1:7 
+]
+[s S407 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 DA1 1 0 :1:5 
+]
+[s S413 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START1 1 0 :1:3 
+`uc 1 STOP1 1 0 :1:4 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[s S419 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 I2C_DAT 1 0 :1:5 
+]
+[s S424 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+]
+[s S427 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S430 . 1 `S352 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 `S367 1 . 1 0 `S372 1 . 1 0 `S377 1 . 1 0 `S382 1 . 1 0 `S387 1 . 1 0 `S390 1 . 1 0 `S393 1 . 1 0 `S398 1 . 1 0 `S407 1 . 1 0 `S413 1 . 1 0 `S419 1 . 1 0 `S424 1 . 1 0 `S427 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES430  1 e 1 @4039 ]
 "15008
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "15262
@@ -203,52 +296,141 @@
 ]
 [u S101 . 1 `S79 1 . 1 0 `S88 1 . 1 0 `S97 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES101  1 e 1 @4082 ]
-"18 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\main.c
+"81 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\oled.h
+[v oled@OLED_characters OLED_characters `C[475]uc  1 s 475 OLED_characters ]
+"179
+[v oled@OLED_buffer OLED_buffer `[512]uc  1 s 512 OLED_buffer ]
+"214
+[v __address _address `uc  1 e 1 0 ]
+"17 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"36
+"33
 } 0
-"15 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\config.c
+"14 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\config.c
 [v _config config `(v  1 e 1 0 ]
 {
-"50
+"48
 } 0
-"21 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\i2c.c
-[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"74 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\oled.c
+[v _OLED_write OLED_write `(v  1 e 1 0 ]
 {
-[v I2C_Master_Init@c c `ul  1 p 4 13 ]
-"29
+"75
+[v OLED_write@x x `ui  1 a 2 3 ]
+"91
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"132
+[v _OLED_string OLED_string `(v  1 e 1 0 ]
+{
+"134
+[v OLED_string@pos pos `s  1 a 2 32 ]
+"136
+[v OLED_string@startx startx `s  1 a 2 30 ]
+"137
+[v OLED_string@starty starty `s  1 a 2 28 ]
+"135
+[v OLED_string@character character `uc  1 a 1 34 ]
+"132
+[v OLED_string@str str `*.25uc  1 p 2 20 ]
+[v OLED_string@x x `s  1 p 2 22 ]
+[v OLED_string@y y `s  1 p 2 24 ]
+"144
+} 0
+"126
+[v _OLED_char OLED_char `(v  1 e 1 0 ]
+{
+[v OLED_char@character character `uc  1 a 1 wreg ]
+"128
+[v OLED_char@offset offset `s  1 a 2 16 ]
+"127
+[v OLED_char@table_offset table_offset `s  1 a 2 14 ]
+"129
+[v OLED_char@i i `uc  1 a 1 19 ]
+"126
+[v OLED_char@character character `uc  1 a 1 wreg ]
+[v OLED_char@x x `s  1 p 2 6 ]
+[v OLED_char@y y `s  1 p 2 8 ]
+[v OLED_char@character character `uc  1 a 1 18 ]
+"131
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"92 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\oled.c
+[v _OLED_clear OLED_clear `(v  1 e 1 0 ]
+{
+"94
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"15
+[v memset@p p `*.39uc  1 a 2 6 ]
+"8
+[v memset@p1 p1 `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"22
+} 0
+"27 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\oled.c
+[v _OLED_Init OLED_Init `(v  1 e 1 0 ]
+{
+[v OLED_Init@address address `uc  1 a 1 wreg ]
+[v OLED_Init@address address `uc  1 a 1 wreg ]
+[v OLED_Init@address address `uc  1 a 1 19 ]
+"57
+} 0
+"58
+[v _OLED_command OLED_command `(v  1 e 1 0 ]
+{
+[v OLED_command@command command `uc  1 a 1 wreg ]
+[v OLED_command@command command `uc  1 a 1 wreg ]
+"60
+[v OLED_command@command command `uc  1 a 1 2 ]
+"65
+} 0
+"19
+[v _I2CStop I2CStop `(v  1 e 1 0 ]
+{
+"21
+} 0
+"16
+[v _I2CStart I2CStart `(v  1 e 1 0 ]
+{
+"18
+} 0
+"22
+[v _I2CSend I2CSend `(v  1 e 1 0 ]
+{
+[v I2CSend@dat dat `uc  1 a 1 wreg ]
+[v I2CSend@dat dat `uc  1 a 1 wreg ]
+[v I2CSend@dat dat `uc  1 a 1 1 ]
+"25
+} 0
+"7
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+{
+"8
+[v I2CInit@c c `ui  1 a 2 16 ]
+"15
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 12 ]
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
 "8
-[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
-"31
-} 0
-"62 D:\GIT\18F46K22_SSD1306_I2C\SSD1306_I2C.X\i2c.c
-[v _I2C_Write_Display I2C_Write_Display `(v  1 e 1 0 ]
-{
-[v I2C_Write_Display@d d `ui  1 p 2 1 ]
-"66
-} 0
-"50
-[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-{
-"54
-} 0
-"38
-[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-{
+[v ___aldiv@dividend dividend `l  1 p 4 0 ]
+[v ___aldiv@divisor divisor `l  1 p 4 4 ]
 "42
-} 0
-"31
-[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
-{
-"36
 } 0
