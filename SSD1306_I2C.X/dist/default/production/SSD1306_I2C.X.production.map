@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\SSD1306_I2C.X.production.sym \
   --cmf=dist/default/production\SSD1306_I2C.X.production.cmf -z -Q18F46K22 \
-  -oC:\Users\georg\AppData\Local\Temp\s6fk.2 \
+  -oC:\Users\georg\AppData\Local\Temp\s36o.2 \
   -Mdist/default/production/SSD1306_I2C.X.production.map -E1 -ver=XC8 \
   -ASTACK=060h-0b37h -pstack=STACK -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\georg\AppData\Local\Temp\s6fk.obj \
+  C:\Users\georg\AppData\Local\Temp\s36o.obj \
   dist/default/production\SSD1306_I2C.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\georg\AppData\Local\Temp\s6fk.obj
+C:\Users\georg\AppData\Local\Temp\s36o.obj
                 init                                  0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
@@ -47,25 +47,25 @@ dist/default/production\SSD1306_I2C.X.production.obj
                 mediumconst                        FC3A     FC3A      3C6     7E1D       0
                 text14                             F76E     F76E       CC     7BB7       0
                 text13                             F45E     F45E       52     7A2F       0
-                text12                             F33C     F33C       1C     799E       0
-                text11                             F32C     F32C        8     7996       0
-                text10                             F334     F334        8     799A       0
-                text9                              F358     F358       1E     79AC       0
+                text12                             F324     F324       1C     7992       0
+                text11                             F314     F314        8     798A       0
+                text10                             F31C     F31C        8     798E       0
+                text9                              F340     F340       1E     79A0       0
                 text8                              F6C2     F6C2       AC     7B61       0
-                text7                              F3BA     F3BA       2C     79DD       0
-                text6                              F376     F376       1E     79BB       0
-                text5                              F394     F394       26     79CA       0
+                text7                              F3A2     F3A2       2C     79D1       0
+                text6                              F35E     F35E       1E     79AF       0
+                text5                              F37C     F37C       26     79BE       0
                 text4                              F61C     F61C       A6     7B0E       0
                 text3                              F58C     F58C       90     7AC6       0
                 text2                              F4B0     F4B0       62     7A58       0
                 text1                              F512     F512       7A     7A89       0
-                text0                              F3E6     F3E6       38     79F3       0
-                cstackCOMRAM                          1        1       27        1       1
+                text0                              F40E     F40E       50     7A07       0
+                cstackCOMRAM                          1        1       29        1       1
                 dataBIGRAM                          B38      B38      400      B38       1
-                dataCOMRAM                           28       28        1        1       1
-                cinit                              F41E     F41E       40     7A0F       0
+                dataCOMRAM                           2A       2A        1        1       1
+                cinit                              F3CE     F3CE       40     79E7       0
                 idataBIGRAM                        F83A     F83A      400     F83A       0
-                idataCOMRAM                        F32B     F32B        1     F32B       0
+                idataCOMRAM                        F313     F313        1     F313       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -74,22 +74,22 @@ TOTAL           Name                               Link     Load   Length     Sp
                 init                                  0        0        4         0
                 text14                             F76E     F76E       CC         0
                 text13                             F45E     F45E       52         0
-                text12                             F33C     F33C       1C         0
-                text11                             F32C     F32C        8         0
-                text10                             F334     F334        8         0
-                text9                              F358     F358       1E         0
+                text12                             F324     F324       1C         0
+                text11                             F314     F314        8         0
+                text10                             F31C     F31C        8         0
+                text9                              F340     F340       1E         0
                 text8                              F6C2     F6C2       AC         0
-                text7                              F3BA     F3BA       2C         0
-                text6                              F376     F376       1E         0
-                text5                              F394     F394       26         0
+                text7                              F3A2     F3A2       2C         0
+                text6                              F35E     F35E       1E         0
+                text5                              F37C     F37C       26         0
                 text4                              F61C     F61C       A6         0
                 text3                              F58C     F58C       90         0
                 text2                              F4B0     F4B0       62         0
                 text1                              F512     F512       7A         0
-                text0                              F3E6     F3E6       38         0
-                cinit                              F41E     F41E       40         0
+                text0                              F40E     F40E       50         0
+                cinit                              F3CE     F3CE       40         0
                 idataBIGRAM                        F83A     F83A      400         0
-                idataCOMRAM                        F32B     F32B        1         0
+                idataCOMRAM                        F313     F313        1         0
 
         CLASS   CONST          
 
@@ -99,8 +99,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 mediumconst                        FC3A     FC3A      3C6         0
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       27         1
-                dataCOMRAM                           28       28        1         1
+                cstackCOMRAM                          1        1       29         1
+                dataCOMRAM                           2A       2A        1         1
 
         CLASS   ABS1           
 
@@ -158,18 +158,18 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000028  000029         1       1  COMRAM  
+                cstackCOMRAM                   000001  00002A  00002B         1       1  COMRAM  
                 dataBIGRAM                     000B38  000400  000F38       B38       1  BIGRAM  
-                idataCOMRAM                    00F32B  000001  00F32C      F32B       0  CODE    
-                text11                         00F32C  000008  00F334      7996       0  CODE    
-                text10                         00F334  000008  00F33C      799A       0  CODE    
-                text12                         00F33C  00001C  00F358      799E       0  CODE    
-                text9                          00F358  00001E  00F376      79AC       0  CODE    
-                text6                          00F376  00001E  00F394      79BB       0  CODE    
-                text5                          00F394  000026  00F3BA      79CA       0  CODE    
-                text7                          00F3BA  00002C  00F3E6      79DD       0  CODE    
-                text0                          00F3E6  000038  00F41E      79F3       0  CODE    
-                cinit                          00F41E  000040  00F45E      7A0F       0  CODE    
+                idataCOMRAM                    00F313  000001  00F314      F313       0  CODE    
+                text11                         00F314  000008  00F31C      798A       0  CODE    
+                text10                         00F31C  000008  00F324      798E       0  CODE    
+                text12                         00F324  00001C  00F340      7992       0  CODE    
+                text9                          00F340  00001E  00F35E      79A0       0  CODE    
+                text6                          00F35E  00001E  00F37C      79AF       0  CODE    
+                text5                          00F37C  000026  00F3A2      79BE       0  CODE    
+                text7                          00F3A2  00002C  00F3CE      79D1       0  CODE    
+                cinit                          00F3CE  000040  00F40E      79E7       0  CODE    
+                text0                          00F40E  000050  00F45E      7A07       0  CODE    
                 text13                         00F45E  000052  00F4B0      7A2F       0  CODE    
                 text2                          00F4B0  000062  00F512      7A58       0  CODE    
                 text1                          00F512  00007A  00F58C      7A89       0  CODE    
@@ -198,15 +198,15 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000029-000B37              B0F
-        CODE             000004-00F32A             F327
-        COMRAM           000029-00005F               37
-        CONST            000004-00F32A             F327
+        BIGRAM           00002B-000B37              B0D
+        CODE             000004-00F312             F30F
+        COMRAM           00002B-00005F               35
+        CONST            000004-00F312             F30F
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      001000-00F32A             E32B
+        MEDIUMCONST      001000-00F312             E313
         RAM              000060-000B37              100
         SFR              000F38-000FFF               28
-        SMALLCONST       001000-00F32A              100
+        SMALLCONST       001000-00F312              100
         STACK            000060-000B37              AD8
 
                                   Symbol Table
@@ -238,9 +238,9 @@ _ANSELC                      (abs)        000F3A
 _ANSELD                      (abs)        000F3B
 _ANSELE                      (abs)        000F3C
 _I2CInit                     text13       00F45E
-_I2CSend                     text12       00F33C
-_I2CStart                    text11       00F32C
-_I2CStop                     text10       00F334
+_I2CSend                     text12       00F324
+_I2CStart                    text11       00F314
+_I2CStop                     text10       00F31C
 _INTCONbits                  (abs)        000FF2
 _LATA                        (abs)        000F89
 _LATB                        (abs)        000F8A
@@ -249,8 +249,8 @@ _LATD                        (abs)        000F8C
 _LATE                        (abs)        000F8D
 _OLED_Init                   text8        00F6C2
 _OLED_char                   text4        00F61C
-_OLED_clear                  text6        00F376
-_OLED_command                text9        00F358
+_OLED_clear                  text6        00F35E
+_OLED_command                text9        00F340
 _OLED_string                 text3        00F58C
 _OLED_write                  text2        00F4B0
 _OSCCONbits                  (abs)        000FD3
@@ -495,55 +495,55 @@ ___intlo_sp                  stack        000000
 ___param_bank                (abs)        000000
 ___rparam_used               (abs)        000001
 ___sp                        stack        000000
-___wmul                      text5        00F394
+___wmul                      text5        00F37C
 ___wmul@multiplicand         cstackCOMRAM 000003
 ___wmul@multiplier           cstackCOMRAM 000001
 ___wmul@product              cstackCOMRAM 000005
 __accesstop                  (abs)        000060
 __activetblptr               (abs)        000002
-__address                    dataCOMRAM   000028
+__address                    dataCOMRAM   00002A
 __end_of_I2CInit             text13       00F4B0
-__end_of_I2CSend             text12       00F358
-__end_of_I2CStart            text11       00F334
-__end_of_I2CStop             text10       00F33C
+__end_of_I2CSend             text12       00F340
+__end_of_I2CStart            text11       00F31C
+__end_of_I2CStop             text10       00F324
 __end_of_OLED_Init           text8        00F76E
 __end_of_OLED_char           text4        00F6C2
 __end_of_OLED_characters     mediumconst  00FFF1
-__end_of_OLED_clear          text6        00F394
-__end_of_OLED_command        text9        00F376
+__end_of_OLED_clear          text6        00F37C
+__end_of_OLED_command        text9        00F35E
 __end_of_OLED_string         text3        00F61C
 __end_of_OLED_write          text2        00F512
 __end_of___aldiv             text14       00F83A
-__end_of___wmul              text5        00F3BA
-__end_of__initialization     cinit        00F454
+__end_of___wmul              text5        00F3A2
+__end_of__initialization     cinit        00F404
 __end_of_config              text1        00F58C
-__end_of_main                text0        00F41E
-__end_of_memset              text7        00F3E6
+__end_of_main                text0        00F45E
+__end_of_memset              text7        00F3CE
 __end_ofoled@OLED_characters mediumconst  00FE16
-__initialization             cinit        00F41E
+__initialization             cinit        00F3CE
 __mediumconst                mediumconst  00FC3A
-__pcinit                     cinit        00F41E
+__pcinit                     cinit        00F3CE
 __pcstackCOMRAM              cstackCOMRAM 000001
 __pdataBIGRAM                dataBIGRAM   000B38
-__pdataCOMRAM                dataCOMRAM   000028
+__pdataCOMRAM                dataCOMRAM   00002A
 __pidataBIGRAM               idataBIGRAM  00F83A
-__pidataCOMRAM               idataCOMRAM  00F32B
+__pidataCOMRAM               idataCOMRAM  00F313
 __pmediumconst               mediumconst  00FC3A
-__ptext0                     text0        00F3E6
+__ptext0                     text0        00F40E
 __ptext1                     text1        00F512
-__ptext10                    text10       00F334
-__ptext11                    text11       00F32C
-__ptext12                    text12       00F33C
+__ptext10                    text10       00F31C
+__ptext11                    text11       00F314
+__ptext12                    text12       00F324
 __ptext13                    text13       00F45E
 __ptext14                    text14       00F76E
 __ptext2                     text2        00F4B0
 __ptext3                     text3        00F58C
 __ptext4                     text4        00F61C
-__ptext5                     text5        00F394
-__ptext6                     text6        00F376
-__ptext7                     text7        00F3BA
+__ptext5                     text5        00F37C
+__ptext6                     text6        00F35E
+__ptext7                     text7        00F3A2
 __ptext8                     text8        00F6C2
-__ptext9                     text9        00F358
+__ptext9                     text9        00F340
 __ramtop                     ramtop       001000
 __size_of_I2CInit            (abs)        000000
 __size_of_I2CSend            (abs)        000000
@@ -562,14 +562,14 @@ __size_of_main               (abs)        000000
 __size_of_memset             (abs)        000000
 __smallconst                 smallconst   000000
 _config                      text1        00F512
-_main                        text0        00F3E6
-_memset                      text7        00F3BA
-end_of_initialization        cinit        00F454
+_main                        text0        00F40E
+_memset                      text7        00F3A2
+end_of_initialization        cinit        00F404
 intlevel0                    text         000000
 intlevel1                    text         000000
 intlevel2                    text         000000
 intlevel3                    text         000000
-main@x_axis                  cstackCOMRAM 000026
+main@x_axis                  cstackCOMRAM 000028
 memset@c                     cstackCOMRAM 000003
 memset@n                     cstackCOMRAM 000005
 memset@p                     cstackCOMRAM 000007
@@ -579,7 +579,7 @@ oled@OLED_characters         mediumconst  00FC3B
 stackhi                      (abs)        000B37
 stacklo                      (abs)        000060
 start                        init         000000
-start_initialization         cinit        00F41E
+start_initialization         cinit        00F3CE
 
 
 FUNCTION INFORMATION:
@@ -590,7 +590,7 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  x_axis          2   37[COMRAM] unsigned int 
+  x_axis          2   39[COMRAM] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -602,9 +602,9 @@ FUNCTION INFORMATION:
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels required when called:    3
  This function calls:
 		_OLED_Init
@@ -1072,7 +1072,7 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-		___wmul        		CODE           	F394	0000	39
+		___wmul        		CODE           	F37C	0000	39
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c estimated size: 39
 
@@ -1083,22 +1083,22 @@ config.c estimated size: 123
 
 shared
 		oled@OLED_characters		MEDIUMCONST    	FC3B	0000	476
-		__initialization		CODE           	F41E	0000	55
+		__initialization		CODE           	F3CE	0000	55
 		_OLED_characters		MEDIUMCONST    	0000	0000	0
 
 shared estimated size: 531
 
 oled.c
-		_OLED_clear    		CODE           	F376	0000	31
+		_OLED_clear    		CODE           	F35E	0000	31
 		_OLED_write    		CODE           	F4B0	0000	99
 		_OLED_string   		CODE           	F58C	0000	145
-		_I2CStop       		CODE           	F334	0000	9
-		_OLED_command  		CODE           	F358	0000	31
+		_I2CStop       		CODE           	F31C	0000	9
+		_OLED_command  		CODE           	F340	0000	31
 		_OLED_char     		CODE           	F61C	0000	167
 		_OLED_Init     		CODE           	F6C2	0000	173
-		_I2CStart      		CODE           	F32C	0000	9
+		_I2CStart      		CODE           	F314	0000	9
 		_I2CInit       		CODE           	F45E	0000	83
-		_I2CSend       		CODE           	F33C	0000	29
+		_I2CSend       		CODE           	F324	0000	29
 
 oled.c estimated size: 776
 
@@ -1108,12 +1108,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c estimated size: 205
 
 main.c
-		_main          		CODE           	F3E6	0000	57
+		_main          		CODE           	F40E	0000	81
 
-main.c estimated size: 57
+main.c estimated size: 81
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
-		_memset        		CODE           	F3BA	0000	45
+		_memset        		CODE           	F3A2	0000	45
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c estimated size: 45
 
